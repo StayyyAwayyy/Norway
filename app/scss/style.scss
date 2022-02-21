@@ -4,4 +4,172 @@
 @import 'libs';
 @import 'global';
 
+.main {
+  background-image: url(../images/main-bg.png);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  height: 870px;
+  color: #fff;
+  &__header {
+    padding: 25px 0;
+  }
+  &__banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__wrapper {
+    text-align: center;
+    margin: 200px 0 137px 0;
+  }
+  &__title {
+    font-size: 100px;
+    font-family: 'PlayfairDisplay-Bold', serif;
+    margin: 45px 0;
+    font-weight: bold;
+    letter-spacing: 20px;
+  }
+  &__btn {
+    width: 200px;
+  }
+}
 
+.btn {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Montserrat'; //
+  color: rgb(255, 255, 255);
+  background-color: #689bb1;
+  padding: 23px 0;
+  border-radius: 40px;
+  border: 0;
+  outline: 0;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 120px 410px 120px;
+  align-items: center;
+  justify-content: space-between;
+  &__logo {
+  }
+  &__menu {
+  }
+}
+
+.logo {
+  display: inline;
+}
+
+.menu {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link {
+    color: #fff;
+  }
+}
+
+.advantage {
+  max-width: 790px;
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+  &__num {
+    font-size: 73px;
+  }
+  &__text {
+    margin-left: 15px;
+    font-size: 12px;
+    line-height: 1.583;
+    width: 260px;
+    text-align: left;
+  }
+}
+
+// ABOUT
+
+.title {
+  @extend %main-titles;
+}
+
+.about {
+  padding: 150px 0;
+  // background-image: url(../images/mountain_about.png);
+  // background-position: center 400px;
+  // background-repeat: no-repeat;
+  &__inner {
+  }
+  &__item {
+    display: flex;
+    position: relative;
+    margin-top: 80px;
+  }
+  &__info {
+    width: 470px;
+    margin-top: 85px;
+    margin-left: 80px;
+  }
+  &__img {
+  }
+  &__subtitle {
+    font-size: 25px;
+    font-family: 'Playfair Display', serif;
+    color: rgb(42, 42, 42);
+  }
+  &__text {
+    margin: 40px 0;
+  }
+  &__date {
+    font-family: 'Montserrat-Italic', sans-serif;
+  }
+  &__absolute {
+    position: absolute;
+    display: flex;
+    top: 335px;
+    left: 230px;
+  }
+  &__absolute-img {
+    border-top: 15px solid #fff;
+    border-left: 15px solid #fff;
+  }
+  &__absolute-text {
+    width: 425px;
+    margin-left: 80px;
+    margin-top: 70px;
+  }
+}
+
+// TEAM
+
+.subtitle {
+  @extend %main-subtitles;
+}
+
+.team {
+  position: relative;
+  &__subtitle {
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+}
+
+.bg {
+  background-image: url(../images/mountain_about.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 933px;
+  width: 100%;
+  position: absolute;
+  top: -390px;
+  z-index: -1;
+}
