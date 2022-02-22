@@ -52,10 +52,6 @@
   grid-template-columns: 120px 410px 120px;
   align-items: center;
   justify-content: space-between;
-  &__logo {
-  }
-  &__menu {
-  }
 }
 
 .logo {
@@ -105,8 +101,6 @@
   // background-image: url(../images/mountain_about.png);
   // background-position: center 400px;
   // background-repeat: no-repeat;
-  &__inner {
-  }
   &__item {
     display: flex;
     position: relative;
@@ -117,11 +111,9 @@
     margin-top: 85px;
     margin-left: 80px;
   }
-  &__img {
-  }
   &__subtitle {
     font-size: 25px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'PlayfairDisplay-Regular', serif;
     color: rgb(42, 42, 42);
   }
   &__text {
@@ -154,6 +146,7 @@
 }
 
 .team {
+  padding-bottom: 70px;
   position: relative;
   &__subtitle {
     margin-top: 60px;
@@ -166,10 +159,86 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-
   height: 933px;
   width: 100%;
   position: absolute;
   top: -390px;
   z-index: -1;
+}
+
+.our-team {
+  display: flex;
+  justify-content: space-between;
+  width: 920px;
+  margin: 0 auto;
+  &__item {
+    width: 285px;
+    position: relative;
+    overflow: hidden;
+    // box-shadow: 0px 0px 14px 5px rgba(0, 0, 0, 0.3);
+  }
+  &__image {
+    width: 285px;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__info {
+    position: absolute;
+    transform: translate(0, -90px);
+    background-color: #fff;
+    width: 285px;
+    transition: all 0.7s;
+    .our-team__arrow-down {
+      display: none;
+    }
+  }
+  &__info-show {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  &__name {
+    font-size: 25px;
+    line-height: 25px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+  }
+
+  &__info-hide {
+    padding: 30px;
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__info-hide-text {
+    padding: 10px 0;
+  }
+  &__info-hide-bold {
+    font-family: 'Montserrat-Bold', sans-serif;
+  }
+  .slick-list {
+  }
+  .slick-slide {
+    width: 285px;
+    margin: 0 17px;
+  }
+  .slick-prev {
+    width: 65px;
+    height: 65px;
+    left: -95px;
+    &:before {
+      content: url(../images/arrow-left.png);
+    }
+  }
+  .slick-next {
+    width: 65px;
+    height: 65px;
+    right: -95px;
+    &:before {
+      content: url(../images/arrow-right.png);
+    }
+  }
 }
