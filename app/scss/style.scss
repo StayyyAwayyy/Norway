@@ -4,6 +4,14 @@
 @import 'libs';
 @import 'global';
 
+body {
+  background-image: url(../images/stars.png);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
 .main {
   background-image: url(../images/main-bg.png);
   background-size: cover;
@@ -96,11 +104,32 @@
   @extend %main-titles;
 }
 
+// .bg {
+//   background-image: url(../images/mountain_about.png);
+//   background-position: center center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 933px;
+//   width: 100%;
+//   position: absolute;
+//   top: 100%;
+//   z-index: -1;
+// }
+
 .about {
+  position: relative;
   padding: 150px 0;
   // background-image: url(../images/mountain_about.png);
   // background-position: center 400px;
   // background-repeat: no-repeat;
+  // background-size: cover;
+  // &::after {
+  //   content: url(../images/mountain_about.png);
+  //   position: absolute;
+  //   top: 80%;
+  //   width: 100%;
+  // }
+
   &__item {
     display: flex;
     position: relative;
@@ -131,6 +160,8 @@
   &__absolute-img {
     border-top: 15px solid #fff;
     border-left: 15px solid #fff;
+    max-width: 385px;
+    max-height: 305px;
   }
   &__absolute-text {
     width: 425px;
@@ -152,18 +183,25 @@
     margin-top: 60px;
     margin-bottom: 80px;
   }
-}
-
-.bg {
-  background-image: url(../images/mountain_about.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 933px;
-  width: 100%;
-  position: absolute;
-  top: -390px;
-  z-index: -1;
+  // &__pages {
+  //   font-size: 28px;
+  //   font-family: 'PlayfairDisplay-Regular', serif;
+  //   text-align: center;
+  // }
+  // &__pages-span {
+  //   font-size: 23px;
+  //   color: #818181;
+  // }
+  &__pages {
+    font-family: 'PlayfairDisplay-Regular', serif;
+    text-align: center;
+    font-size: 23px;
+    color: #818181;
+  }
+  &__pages-span {
+    color: rgb(36, 36, 36);
+    font-size: 28px;
+  }
 }
 
 .our-team {
@@ -240,5 +278,109 @@
     &:before {
       content: url(../images/arrow-right.png);
     }
+  }
+}
+
+// route
+.route {
+  padding: 100px 0 240px;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    margin-bottom: 70px;
+  }
+  &__inner::before {
+    content: url(../images/route_map.png);
+    position: absolute;
+    top: -200px;
+    left: -80%;
+    z-index: -1;
+  }
+  // &__map {
+  //   content: url(../images/route_map.png);
+  //   position: absolute;
+  //   top: -100px;
+  //   left: 35px;
+  //   z-index: -1;
+  // }
+  &__inner {
+    margin: 0 auto;
+    padding-left: 50px;
+    position: relative;
+  }
+  &__menu {
+    // display: flex;
+  }
+  &__menu-item {
+    display: block;
+    background-color: transparent;
+    // height: 30px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 0;
+    font-size: 10px;
+    color: rgb(171, 171, 171);
+    &_active {
+      font-size: 16px;
+      color: rgb(36, 36, 36);
+    }
+  }
+}
+
+.tours {
+  // overflow: hidden;
+  height: 562px;
+  max-width: 428px;
+  &__item {
+    height: 562px;
+  }
+  &__title {
+    font-size: 25px;
+    font-family: 'Playfair Display';
+  }
+  &__info {
+    display: flex;
+  }
+  &__info-item {
+    display: flex;
+    align-items: center;
+    margin: 25px 0 75px;
+    svg {
+      margin-right: 10px;
+    }
+  }
+  &__info-item:first-child {
+    margin-right: 40px;
+  }
+  &__day {
+    font-size: 16px;
+    font-family: 'Montserrat-Bold', sans-serif;
+    color: rgb(89, 137, 157);
+  }
+  &__about {
+    line-height: 1.462;
+    margin: 35px 0 80px;
+  }
+  &__text {
+    margin-bottom: 25px;
+  }
+  &__reserve {
+    display: flex;
+    align-items: center;
+  }
+  &__price {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 10px;
+    }
+  }
+  &__btn {
+    margin-left: 60px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }

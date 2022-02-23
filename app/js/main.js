@@ -18,7 +18,7 @@ $(document).ready(function () {
     });
   }
 
-  //team slider
+  // team slider
 
   $('.our-team').slick({
     infinite: true,
@@ -26,7 +26,9 @@ $(document).ready(function () {
     slidesToScroll: 3,
     arrows: true,
     variableWidth: true,
-    // dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+
     // responsive: [
     //   {
     //     breakpoint: 1024,
@@ -37,5 +39,34 @@ $(document).ready(function () {
     //     },
     //   },
     // ],
+  });
+
+  // let slickItem = $('.slick-slide');
+  // $('.our-team').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+  //   for (let i = 0; i < slickItem.length; i++) {
+  //     console.log(slickItem.length);
+  //     $('.team__pages-span').text(slickItem.length / slickItem.length + ' ');
+  //   }
+  // });
+
+  // route
+
+  let mixer = mixitup('.tours');
+
+  let routeCurrentItem = $('.route__menu-item_active');
+  let routeMenuItem = $('.route__menu-item');
+  // for (let i = 0; i < routeMenuItem.length; i++) {
+  //   $(routeMenuItem[i]).click((event) => {
+  //     console.log(event.target);
+  //     $(routeMenuItem[i]).addClass('route__menu-item_active');
+  //   });
+  // }
+
+  $('.route__menu-item').click((event) => {
+    if ($('.route__menu-item').hasClass('route__menu-item_active')) {
+      $('.route__menu-item').removeClass('route__menu-item_active');
+    } else {
+      $(this).addClass('route__menu-item_active');
+    }
   });
 });
