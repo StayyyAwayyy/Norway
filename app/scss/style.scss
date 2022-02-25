@@ -12,6 +12,25 @@ body {
   height: 100%;
 }
 
+.subtitle {
+  @extend %main-subtitles;
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Montserrat'; //
+  color: rgb(255, 255, 255);
+  background-color: #689bb1;
+  padding: 23px 0;
+  border-radius: 40px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+// *****
+
 .main {
   background-image: url(../images/main-bg.png);
   background-size: cover;
@@ -41,18 +60,6 @@ body {
   &__btn {
     width: 200px;
   }
-}
-
-.btn {
-  font-size: 14px;
-  font-weight: bold;
-  font-family: 'Montserrat'; //
-  color: rgb(255, 255, 255);
-  background-color: #689bb1;
-  padding: 23px 0;
-  border-radius: 40px;
-  border: 0;
-  outline: 0;
 }
 
 .header {
@@ -172,10 +179,6 @@ body {
 
 // TEAM
 
-.subtitle {
-  @extend %main-subtitles;
-}
-
 .team {
   padding-bottom: 70px;
   position: relative;
@@ -243,6 +246,10 @@ body {
     line-height: 25px;
     font-family: 'PlayfairDisplay-Regular', serif;
   }
+  &__arrow-up,
+  &__arrow-down {
+    cursor: pointer;
+  }
 
   &__info-hide {
     padding: 30px;
@@ -283,22 +290,25 @@ body {
 
 // route
 .route {
-  padding: 100px 0 240px;
+  padding: 100px 0 180px;
   &__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+
+    &::before {
+      content: url(../images/route_map.png);
+      position: absolute;
+      top: -200px;
+      left: -30px;
+      z-index: -1;
+    }
   }
   &__title {
     margin-bottom: 70px;
   }
-  &__inner::before {
-    content: url(../images/route_map.png);
-    position: absolute;
-    top: -200px;
-    left: -80%;
-    z-index: -1;
-  }
+
   // &__map {
   //   content: url(../images/route_map.png);
   //   position: absolute;
@@ -309,16 +319,17 @@ body {
   &__inner {
     margin: 0 auto;
     padding-left: 50px;
-    position: relative;
+    overflow: hidden;
   }
   &__menu {
-    // display: flex;
   }
   &__menu-item {
     display: block;
     background-color: transparent;
     // height: 30px;
-    padding: 10px;
+    height: 35px;
+    width: 85px;
+    cursor: pointer;
     margin: 10px 0;
     border: 0;
     font-size: 10px;
@@ -327,15 +338,25 @@ body {
       font-size: 16px;
       color: rgb(36, 36, 36);
     }
+    &:hover {
+      font-size: 16px;
+      color: rgb(36, 36, 36);
+      transition: 0.5s;
+    }
   }
 }
 
 .tours {
-  // overflow: hidden;
   height: 562px;
   max-width: 428px;
   &__item {
+    animation: tourShow 3s;
     height: 562px;
+    display: none;
+    transition: 0.4s;
+    &:first-child {
+      display: block;
+    }
   }
   &__title {
     font-size: 25px;
@@ -382,5 +403,20 @@ body {
     margin-left: 60px;
     padding-left: 50px;
     padding-right: 50px;
+  }
+}
+
+// animation
+@keyframes tourShow {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
