@@ -1612,6 +1612,43 @@
         </div>
       </div>
     </section>
+
+    <section class="reserve">
+      <div class="container">
+        <h2 class="reserve__title title">Где остановиться</h2>
+        <h3 class="reserve__subtitle subtitle">
+          Отправьте свои данные с помощью формы, и мы перезвоним вам в течении часа в рабочее время,
+          чтобы ответить на все интересующие вас вопросы.
+        </h3>
+      </div>
+      <form class="reserve__form reserve-form" action="" method="POST">
+        <div class="reserve-form__title">Заполните форму</div>
+        <input
+          class="reserve-form__name"
+          type="text"
+          name="firstName"
+          placeholder="Ваше имя"
+          required
+        />
+        <input
+          class="reserve-form__phone"
+          type="text"
+          name="phoneNumber"
+          placeholder="Ваш телефон"
+          required
+        />
+        <label class="reserve-form__check" for="formCheck">
+          <input type="checkbox" id="formCheck" required />
+          <div>
+            Я соглашаюсь на обработку персональных данных, согласно
+            <a class="reserve-form__link" href="#"
+              >политике конфиденциальности<span> и </span>пользовательскому соглашению.</a
+            >
+          </div>
+        </label>
+        <button class="reserve-form__btn btn">Отправить!</button>
+      </form>
+    </section>
     <script src="js/main.min.js"></script>
   </body>
 </html>
