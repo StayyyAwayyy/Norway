@@ -22,7 +22,7 @@ body {
   font-family: 'Montserrat'; //
   color: rgb(255, 255, 255);
   background-color: #689bb1;
-  padding: 23px 0;
+  padding: 21px 0;
   border-radius: 40px;
   border: 0;
   outline: 0;
@@ -216,7 +216,10 @@ body {
     width: 285px;
     position: relative;
     overflow: hidden;
-    // box-shadow: 0px 0px 14px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+    &:hover .our-team__arrow-up {
+      animation: teamArrow 1.4s infinite;
+    }
   }
   &__image {
     width: 285px;
@@ -264,16 +267,16 @@ body {
   &__info-hide-bold {
     font-family: 'Montserrat-Bold', sans-serif;
   }
-  .slick-list {
-  }
   .slick-slide {
     width: 285px;
-    margin: 0 17px;
+    margin: 0 15px;
   }
   .slick-prev {
     width: 65px;
     height: 65px;
     left: -95px;
+    top: 48%;
+
     &:before {
       content: url(../images/arrow-left.png);
     }
@@ -282,6 +285,8 @@ body {
     width: 65px;
     height: 65px;
     right: -95px;
+    top: 48%;
+
     &:before {
       content: url(../images/arrow-right.png);
     }
@@ -290,7 +295,7 @@ body {
 
 // route
 .route {
-  padding: 100px 0 180px;
+  padding: 100px 0 200px;
   &__wrapper {
     display: flex;
     align-items: center;
@@ -301,7 +306,7 @@ body {
       content: url(../images/route_map.png);
       position: absolute;
       top: -200px;
-      left: -30px;
+      left: -20px;
       z-index: -1;
     }
   }
@@ -406,17 +411,370 @@ body {
   }
 }
 
+// tour-slider
+
+.collage {
+  padding: 40px 0 250px;
+  background: #c9c9c9;
+  &__wrapper {
+  }
+  &__title {
+    margin-bottom: 75px;
+  }
+}
+
+.tour-slider {
+  // display: flex;
+  // flex-wrap: wrap;
+  // display: flex;
+  // justify-content: space-between;
+  max-width: 920px;
+  margin: 0 auto;
+  .slick-slide {
+    width: 445px;
+  }
+  .slick-track {
+    // display: flex;
+    // justify-content: space-between;
+  }
+  .slick-slide {
+    margin: 0 15px;
+  }
+  &__item {
+    color: #fff;
+    min-width: 445px;
+    min-height: 372px;
+    padding: 0 0 30px 30px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__title {
+    font-size: 20px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+  }
+  &__info {
+    display: flex;
+    margin: 30px 0;
+  }
+  &__info-item {
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 10px;
+    }
+  }
+  &__days {
+  }
+  &__cost {
+  }
+  &__amount {
+  }
+  &__btn {
+    width: 180px;
+    padding: 16px 0;
+  }
+  .slick-prev {
+    width: 65px;
+    height: 65px;
+    left: -95px;
+    top: 48%;
+    &:before {
+      content: url(../images/arrow-left.png);
+    }
+  }
+  .slick-next {
+    width: 65px;
+    height: 65px;
+    right: -95px;
+    top: 48%;
+
+    &:before {
+      content: url(../images/arrow-right.png);
+    }
+  }
+}
+
+// review
+
+.review {
+  padding: 40px 0 130px;
+  &__title {
+    margin-bottom: 75px;
+  }
+}
+
+.review-slider {
+  max-width: 920px;
+  margin: 0 auto;
+
+  &__item {
+    width: 445px;
+    height: 370px;
+    padding: 30px 40px 30px 30px;
+    box-shadow: 0px 0px 5px 4px rgba(97, 147, 168, 0.1);
+    // margin: 0 15px;
+  }
+  &__main-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  &__photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 25px;
+    background-position: center;
+  }
+  &__top-info {
+  }
+  &__name {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+  }
+  &__tour {
+  }
+  &__text {
+    // height: 73px;
+    line-height: 1.462;
+    overflow: hidden;
+  }
+  &__more {
+    // height: 100px;
+    // line-height: 100px;
+  }
+  &__bottom-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__rating {
+  }
+  &__rate {
+  }
+  &__date {
+  }
+
+  .slick-slide {
+    margin: 0 12px;
+    width: 445px;
+  }
+  .slick-list {
+    margin: 0 auto;
+  }
+  .slick-track {
+    padding: 5px;
+  }
+  .slick-prev {
+    width: 65px;
+    height: 65px;
+    left: -95px;
+    top: 48%;
+
+    &:before {
+      content: url(../images/arrow-left.png);
+    }
+  }
+  .slick-next {
+    width: 65px;
+    height: 65px;
+    right: -95px;
+    top: 48%;
+
+    &:before {
+      content: url(../images/arrow-right.png);
+    }
+  }
+}
+
+// hotels
+
+.hotels {
+  padding: 40px 0 140px;
+  &__title {
+  }
+  &__subtitle {
+    width: 485px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+  }
+}
+.suite {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 75px;
+    &:nth-child(n + 3) {
+      display: none;
+    }
+  }
+  &__image {
+    max-width: 510px;
+    // height: 510px;
+    img {
+      width: 100%;
+    }
+  }
+  &__info {
+    width: 360px;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-right: 95px;
+    }
+    &:first-child {
+      margin-left: 50px;
+    }
+  }
+  &__title {
+    font-size: 25px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+  }
+  &__place {
+    margin-top: 10px;
+    color: rgb(158, 158, 158);
+  }
+  &__text {
+    margin: 50px 0 70px;
+    line-height: 1.462;
+  }
+  &__price {
+  }
+  &__btn {
+    cursor: pointer;
+    font-family: 'Montserrat-Bold', sans-serif;
+    margin: 0 auto;
+    border: 1px solid #242424;
+    background: transparent;
+    border-radius: 40px;
+    padding: 25px 50px;
+    outline: 0;
+    &:hover {
+      color: #fff;
+      background: #707070;
+      transition: 0.7s;
+      border-color: #707070;
+    }
+  }
+
+  &__more {
+  }
+  &__less {
+    display: none;
+  }
+}
+
+// answers
+
+.answers {
+  padding: 40px 0;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    margin-bottom: 80px;
+  }
+  &__image {
+    max-width: 445px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.accordion {
+  width: 100%;
+  max-width: 600px;
+  &__item {
+    margin-bottom: 1px;
+    position: relative;
+    &_active .accordion__title::before {
+      border: 2px solid #fefcfe;
+      border-left-width: 0;
+      border-bottom-width: 0;
+      top: 18px;
+    }
+    &:last-child {
+      border-bottom: 1px solid #d4d4d4;
+    }
+  }
+  &__title {
+    font-size: 20px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+    cursor: pointer;
+    padding: 25px 0 25px 20px;
+    transition: all 0.2s linear 0;
+    border-top: 1px solid #d4d4d4;
+    &::before {
+      content: '';
+      height: 8px;
+      width: 8px;
+      display: block;
+      border: 2px solid #fefcfe;
+      border-right-width: 0;
+      border-top-width: 0;
+      transform: rotate(-45deg);
+      position: absolute;
+      right: 20px;
+      top: 18px;
+    }
+    &_active {
+      // background: #455b64;
+      // color: #fefcfe;
+    }
+  }
+  &__content {
+    display: none;
+    padding: 0 15px 20px;
+    overflow: hidden;
+    line-height: 1.462;
+    width: 480px;
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      padding: 10px 0;
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
 // animation
 @keyframes tourShow {
   0% {
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale(0.8);
   }
   50% {
     opacity: 0.7;
   }
   100% {
     opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes teamArrow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
     transform: scale(1);
   }
 }

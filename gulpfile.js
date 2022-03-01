@@ -20,6 +20,12 @@ function cleanDist() {
   return del('dist');
 }
 
+// function fonts() {
+//   return src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*').pipe(
+//     dest('app/fonts/libs')
+//   );
+// }
+
 function images() {
   return src('app/images/**/*')
     .pipe(
@@ -39,7 +45,6 @@ function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
     'node_modules/slick-carousel/slick/slick.js',
-    'node_modules/mixitup/dist/mixitup.js',
     'app/js/main.js',
   ])
     .pipe(concat('main.min.js'))
@@ -80,6 +85,8 @@ exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.images = images;
 exports.cleanDist = cleanDist;
+// exports.fonts = fonts;
 
 exports.build = series(cleanDist, images, build);
+// exports.default = parallel(fonts, styles, scripts, browsersync, watching);
 exports.default = parallel(styles, scripts, browsersync, watching);
