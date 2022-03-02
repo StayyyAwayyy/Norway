@@ -415,7 +415,6 @@ body {
 
 .collage {
   padding: 40px 0 250px;
-  background: #c9c9c9;
   &__wrapper {
   }
   &__title {
@@ -819,6 +818,109 @@ body {
 #formCheck {
   margin: 0 10px 0 0;
   background: transparent;
+}
+
+// information
+
+.communication {
+  padding-top: 140px;
+  &__title {
+    // margin-bottom: 75px;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__map {
+    // display: flex;
+    // justify-content: center;
+  }
+}
+
+.contacts {
+  margin: 80px 0;
+  &__title {
+    font-size: 20px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+    margin-bottom: 30px;
+  }
+  &__text {
+    margin-bottom: 10px;
+  }
+}
+
+// subscription
+
+.information {
+  background-image: url(../images/footer-bg.png);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 300px;
+  margin-top: 100px;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 55px;
+    color: rgb(255, 255, 255);
+  }
+  &__logo {
+  }
+}
+
+.subscription {
+  justify-self: center;
+  width: 350px;
+  text-align: center;
+  &__title {
+    font-size: 20px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+    margin-bottom: 25px;
+  }
+  &__text {
+    line-height: 1.538;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+  &__mail {
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 16px;
+    width: 100%;
+    background: transparent;
+    &::placeholder {
+      color: rgb(199, 199, 199);
+    }
+  }
+}
+
+.social {
+  justify-self: end;
+  &__title {
+    font-size: 20px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+  }
+
+  &__items {
+  }
+  &__inst {
+  }
+  &__fb {
+  }
+  &__twitter {
+  }
+  &__youtube {
+  }
+}
+
+.footer {
+  text-align: center;
+  border-top: 1px solid #445660;
+  padding: 25px 0;
+  &__rights {
+    color: #445660;
+  }
 }
 
 // animation

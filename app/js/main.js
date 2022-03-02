@@ -141,4 +141,6 @@ $(document).ready(function () {
     $('.accordion__item').removeClass('accordion__item_active');
     $(this).next().slideDown(299).parent().addClass('accordion__item_active');
   });
+
+  // map
 });
