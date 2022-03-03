@@ -211,12 +211,13 @@ body {
   display: flex;
   justify-content: space-between;
   width: 920px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   &__item {
     width: 285px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 12px -6px rgba(0, 0, 0, 0.2);
+
     &:hover .our-team__arrow-up {
       animation: teamArrow 1.4s infinite;
     }
@@ -270,6 +271,9 @@ body {
   .slick-slide {
     width: 285px;
     margin: 0 15px;
+  }
+  .slick-list {
+    padding: 2px;
   }
   .slick-prev {
     width: 65px;
@@ -509,13 +513,13 @@ body {
 
 .review-slider {
   max-width: 920px;
-  margin: 0 auto;
-
+  margin: 0 auto 40px;
   &__item {
     width: 445px;
     height: 370px;
     padding: 30px 40px 30px 30px;
-    box-shadow: 0px 0px 5px 4px rgba(97, 147, 168, 0.1);
+    // box-shadow: 0px 0px 20px -15px #aca0a0;
+    box-shadow: 0px 0px 12px -6px rgba(0, 0, 0, 0.2);
     // margin: 0 15px;
   }
   &__main-info {
@@ -553,18 +557,31 @@ body {
     justify-content: space-between;
   }
   &__rating {
+    display: flex;
+    align-items: center;
+    .checked {
+      color: #ffb923;
+    }
+    .star {
+      content: url(../images/star.svg);
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+    }
   }
   &__rate {
+    margin-left: 5px;
   }
   &__date {
+    color: #cacaca;
   }
-
   .slick-slide {
     margin: 0 12px;
     width: 445px;
   }
   .slick-list {
     margin: 0 auto;
+    padding: 2px;
   }
   .slick-track {
     padding: 5px;
@@ -614,11 +631,11 @@ body {
     margin-bottom: 75px;
     &:nth-child(n + 3) {
       display: none;
+      animation: suiteShow 1s;
     }
   }
   &__image {
     max-width: 510px;
-    // height: 510px;
     img {
       width: 100%;
     }
@@ -663,7 +680,6 @@ body {
       border-color: #707070;
     }
   }
-
   &__more {
   }
   &__less {
@@ -889,6 +905,7 @@ body {
     padding: 16px;
     width: 100%;
     background: transparent;
+    color: #fff;
     &::placeholder {
       color: rgb(199, 199, 199);
     }
@@ -924,6 +941,20 @@ body {
 }
 
 // animation
+@keyframes suiteShow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes tourShow {
   0% {
     opacity: 0;
