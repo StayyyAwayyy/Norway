@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
 
@@ -20,7 +16,7 @@
               <img class="logo__img" src="images/logo.png" alt="" />
             </a>
           </div>
-          <nav class="header__menu menu">
+          <nav class="header__menu menu wow animate__animated animate__zoomIn">
             <ul class="menu__list">
               <li class="menu__item menu__item_active">
                 <a class="menu__link" href="#about">О нас</a>
@@ -35,20 +31,20 @@
         </header>
         <div class="main__banner">
           <div class="main__wrapper">
-            <div class="main__subtitle">
+            <div class="main__subtitle wow animate__animated animate__animated">
               Добро пожаловать в самое захватывающее место на планете
             </div>
-            <div class="main__title">НОРВЕГИЯ</div>
-            <button class="main__btn btn">Выбрать тур</button>
+            <div class="main__title wow animate__animated animate__animated">НОРВЕГИЯ</div>
+            <button class="main__btn btn wow animate__animated animate__pulse">Выбрать тур</button>
           </div>
           <div class="main__inner advantage">
-            <div class="advantage__item">
+            <div class="advantage__item wow animate__animated animate__backInUp">
               <div class="advantage__num">138</div>
               <div class="advantage__text">
                 маршрутов, которые помогут вам почуствовать красоту Норвегии
               </div>
             </div>
-            <div class="advantage__item">
+            <div class="advantage__item wow animate__animated animate__backInUp">
               <div class="advantage__num">24</div>
               <div class="advantage__text">
                 специально обученых гида, которые в короткие сроки познакомит вас с одной из самых
@@ -62,11 +58,17 @@
 
     <section class="about" id="about">
       <div class="container">
-        <h2 class="about__title title">О путешествиях с Northern Tour</h2>
+        <h2 class="about__title title wow animate__animated animate__bounceInDown">
+          О путешествиях с Northern Tour
+        </h2>
         <div class="about__inner">
           <div class="about__item">
-            <img class="about__img" src="images/about_first-pic.png" alt="" />
-            <div class="about__info">
+            <img
+              class="about__img wow animate__animated animate__bounceInLeft"
+              src="images/about_first-pic.png"
+              alt=""
+            />
+            <div class="about__info wow animate__animated animate__bounceInLeft">
               <div class="about__subtitle">Northern Tour</div>
               <div class="about__text">
                 Команда опытных и преданных своей профессии людей, которые с познакомят вас с
@@ -75,7 +77,7 @@
               </div>
               <div class="about__date">Работаем с 2010 года.</div>
             </div>
-            <div class="about__absolute">
+            <div class="about__absolute wow animate__animated animate__bounceInRight">
               <img class="about__absolute-img" src="images/about_second-pic.png" alt="" />
               <div class="about__absolute-text">
                 Мы многие годы изучали популярные маршруты, чтобы сегодня радовать туристов
@@ -91,13 +93,15 @@
     <!-- team -->
     <section class="team">
       <div class="container">
-        <h2 class="team__title title">Наша команда в Норвегии</h2>
-        <h3 class="team__subtitle subtitle">
+        <h2 class="team__title title wow animate__animated animate__bounceInDown">
+          Наша команда в Норвегии
+        </h2>
+        <h3 class="team__subtitle subtitle wow animate__animated animate__fadeInUp">
           В нашей команде 23 гида — мастера своего дела. Каждый из них проживает на территории
           Норвегии и прошел специальное обучение прежде, чем отправиться в самые сложные и
           длительные маршруты.
         </h3>
-        <div class="team__wrapper our-team">
+        <div class="team__wrapper our-team wow animate__animated animate__bounceIn">
           <div class="our-team__item">
             <div class="our-team__image">
               <img class="our-team__img" src="images/team1.png" alt="" />
@@ -270,7 +274,9 @@
     <!-- routs -->
     <section class="route">
       <div class="container">
-        <h2 class="title route__title">Популярный маршрут</h2>
+        <h2 class="title route__title wow animate__animated animate__bounceInDown">
+          Популярный маршрут
+        </h2>
         <div class="route__wrapper">
           <div class="route__inner tours">
             <div class="tours__item mix category-1" data-order="1">
@@ -603,9 +609,12 @@
       </div>
     </section>
 
+    <!-- COLLAGE -->
     <section class="collage">
       <div class="container">
-        <h2 class="collage__title title">Ближайшие туры</h2>
+        <h2 class="collage__title title wow animate__animated animate__bounceInDown">
+          Ближайшие туры
+        </h2>
         <div class="collage__wrapper tour-slider">
           <div class="tour-slider__item" style="background-image: url(../images/tour-slide1.png)">
             <div class="tour-slider__title">Тур «Дорога в Северный Париж»</div>
@@ -733,6 +742,7 @@
                 </svg>
                 6 дней
               </div>
+
               <div class="tour-slider__info-item">
                 <svg
                   width="15px"
@@ -747,6 +757,7 @@
                 </svg>
                 от 1119
               </div>
+
               <div class="tour-slider__info-item">
                 <svg
                   version="1.1"
@@ -794,6 +805,7 @@
                 8-12 человек
               </div>
             </div>
+
             <button class="btn tour-slider__btn">Забронировать</button>
           </div>
 
@@ -1366,8 +1378,10 @@
 
     <section class="review" id="review">
       <div class="container">
-        <h2 class="title review__title">Отзывы путешественников</h2>
-        <div class="review__wrapper review-slider">
+        <h2 class="title review__title wow animate__animated animate__bounceInDown">
+          Отзывы путешественников
+        </h2>
+        <div class="review__wrapper review-slider wow animate__animated animate__fadeInUp">
           <div class="review-slider__item">
             <div class="review-slider__main-info">
               <div
@@ -1497,20 +1511,22 @@
             </div>
           </div>
         </div>
-        <div class="team__pages"><span class="team__pages-span">1 </span>/ 15</div>
+        <div class="review__pages"><span class="review__pages-span">1 </span>/ 15</div>
       </div>
     </section>
 
     <!-- HOTELS -->
     <section class="hotels">
       <div class="container">
-        <h2 class="hotels__title title">Где остановиться</h2>
-        <h3 class="hotels__subtitle subtitle">
+        <h2 class="hotels__title title wow animate__animated animate__bounceInDown">
+          Где остановиться
+        </h2>
+        <h3 class="hotels__subtitle subtitle wow animate__animated animate__fadeInUp">
           Northern Tour Norway сотрудничает с Booking.com и Airbnb. Туристам, которые забронировали
           хотя бы один наш тур, предоставляется скидка 10% на любое жилье в г. Осло.
         </h3>
         <div class="hotels__wrapper suite">
-          <div class="suite__item">
+          <div class="suite__item wow animate__animated animate__bounceInLeft">
             <div class="suite__image">
               <img src="images/suite-1.png" alt="" />
             </div>
@@ -1526,7 +1542,7 @@
             </div>
           </div>
 
-          <div class="suite__item">
+          <div class="suite__item wow animate__animated animate__bounceInRight">
             <div class="suite__info">
               <div class="suite__title">Clarion 4* Hotel Oslo</div>
               <div class="suite__place">Prinsens gate 6, 0152 Осло, Норвегия</div>
@@ -1587,12 +1603,14 @@
     <!-- ANSWERS -->
     <section class="answers">
       <div class="container">
-        <h2 class="title answers__title">Часто задаваемые вопросы</h2>
+        <h2 class="title answers__title wow animate__animated animate__bounceInDown">
+          Часто задаваемые вопросы
+        </h2>
         <div class="answers__wrapper">
-          <div class="answers__image">
+          <div class="answers__image wow animate__animated animate__bounceInLeft">
             <img src="images/answers-img.png" alt="" />
           </div>
-          <div class="answers__accordion accordion">
+          <div class="answers__accordion accordion wow animate__animated animate__bounceInRight">
             <div class="accordion__item">
               <div class="accordion__title">Что входит в стоимость туров?</div>
               <div class="accordion__content">
@@ -1650,15 +1668,22 @@
       </div>
     </section>
 
+    <!-- RESERVE -->
     <section class="reserve">
       <div class="container">
-        <h2 class="reserve__title title">Где остановиться</h2>
-        <h3 class="reserve__subtitle subtitle">
+        <h2 class="reserve__title title wow animate__animated animate__bounceInDown">
+          Где остановиться
+        </h2>
+        <h3 class="reserve__subtitle subtitle wow animate__animated animate__fadeInUp">
           Отправьте свои данные с помощью формы, и мы перезвоним вам в течении часа в рабочее время,
           чтобы ответить на все интересующие вас вопросы.
         </h3>
       </div>
-      <form class="reserve__form reserve-form" action="" method="POST">
+      <form
+        class="reserve__form reserve-form wow animate__animated animate__flipInY"
+        action=""
+        method="POST"
+      >
         <div class="reserve-form__title">Заполните форму</div>
         <input
           class="reserve-form__name"
@@ -1689,19 +1714,21 @@
 
     <section class="communication">
       <div class="container">
-        <h2 class="communication__title title">Контакты</h2>
+        <h2 class="communication__title title wow animate__animated animate__bounceInDown">
+          Контакты
+        </h2>
         <div class="communication__wrapper contacts">
-          <div class="contacts__item">
+          <div class="contacts__item wow animate__animated animate__flipInX">
             <div class="contacts__title">Телефон</div>
             <div class="contacts__text">+47 924 05 050</div>
             <div class="contacts__text">+375 29 622 66 33</div>
           </div>
-          <div class="contacts__item">
+          <div class="contacts__item wow animate__animated animate__flipInX">
             <div class="contacts__title">Адрес</div>
             <div class="contacts__text">Tjuvholmen allé 4, 0252 Осло, Норвегия</div>
             <div class="contacts__text">1-й Загородный пер. 20, Минск, Беларусь</div>
           </div>
-          <div class="contacts__item">
+          <div class="contacts__item wow animate__animated animate__flipInX">
             <div class="contacts__title">Электронная почта</div>
             <div class="contacts__text">northerntour@gmail.com</div>
             <div class="contacts__text">nortour.norway@gmail.com</div>

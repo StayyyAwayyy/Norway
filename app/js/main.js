@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  new WOW().init();
   // team info
 
   let teamItems = $('.our-team__item');
@@ -26,7 +27,7 @@ $(document).ready(function () {
     slidesToScroll: 3,
     arrows: true,
     variableWidth: true,
-    focusOnSelect: true,
+    // focusOnSelect: true,
     // autoplay: true,
     // autoplaySpeed: 4000,
     // centerMode: true,

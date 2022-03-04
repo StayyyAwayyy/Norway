@@ -217,7 +217,6 @@ body {
     position: relative;
     overflow: hidden;
     box-shadow: 0px 0px 12px -6px rgba(0, 0, 0, 0.2);
-
     &:hover .our-team__arrow-up {
       animation: teamArrow 1.4s infinite;
     }
@@ -508,6 +507,16 @@ body {
   padding: 40px 0 130px;
   &__title {
     margin-bottom: 75px;
+  }
+  &__pages {
+    font-family: 'PlayfairDisplay-Regular', serif;
+    text-align: center;
+    font-size: 23px;
+    color: #818181;
+  }
+  &__pages-span {
+    color: rgb(36, 36, 36);
+    font-size: 28px;
   }
 }
 
