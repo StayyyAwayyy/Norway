@@ -27,6 +27,23 @@ body {
   border: 0;
   outline: 0;
   cursor: pointer;
+  display: block;
+}
+
+.pages-current {
+}
+
+.slide-pages {
+  text-align: center;
+  font-family: 'PlayfairDisplay-Regular', serif;
+}
+.count-page {
+  font-size: 23px;
+  color: #818181;
+}
+.current-page {
+  color: rgb(36, 36, 36);
+  font-size: 28px;
 }
 
 // *****
@@ -59,6 +76,7 @@ body {
   }
   &__btn {
     width: 200px;
+    margin: 0 auto;
   }
 }
 
@@ -126,17 +144,18 @@ body {
 .about {
   position: relative;
   padding: 150px 0;
-  // background-image: url(../images/mountain_about.png);
-  // background-position: center 400px;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // &::after {
-  //   content: url(../images/mountain_about.png);
-  //   position: absolute;
-  //   top: 80%;
-  //   width: 100%;
-  // }
-
+  &::after {
+    content: '';
+    background-image: url(../images/about-bg.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 933px;
+    position: absolute;
+    top: 70%;
+    width: 100%;
+    z-index: -1;
+  }
   &__item {
     display: flex;
     position: relative;
@@ -195,16 +214,6 @@ body {
   //   font-size: 23px;
   //   color: #818181;
   // }
-  &__pages {
-    font-family: 'PlayfairDisplay-Regular', serif;
-    text-align: center;
-    font-size: 23px;
-    color: #818181;
-  }
-  &__pages-span {
-    color: rgb(36, 36, 36);
-    font-size: 28px;
-  }
 }
 
 .our-team {
@@ -505,19 +514,34 @@ body {
 
 .review {
   padding: 40px 0 130px;
+  position: relative;
+  &::after {
+    content: '';
+    background-image: url(../images/review-bg.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    // background-size: cover;
+    height: 860px;
+    position: absolute;
+    bottom: -40px;
+    width: 100%;
+    z-index: -1;
+  }
   &__title {
     margin-bottom: 75px;
   }
-  &__pages {
-    font-family: 'PlayfairDisplay-Regular', serif;
-    text-align: center;
-    font-size: 23px;
-    color: #818181;
-  }
-  &__pages-span {
-    color: rgb(36, 36, 36);
-    font-size: 28px;
-  }
+  // &__pages {
+  //   text-align: center;
+  //   font-family: 'PlayfairDisplay-Regular', serif;
+  // }
+  // &__pages-count {
+  //   font-size: 23px;
+  //   color: #818181;
+  // }
+  // &__pages-current {
+  //   color: rgb(36, 36, 36);
+  //   font-size: 28px;
+  // }
 }
 
 .review-slider {
@@ -527,6 +551,7 @@ body {
     width: 445px;
     height: 370px;
     padding: 30px 40px 30px 30px;
+    background: #fff;
     // box-shadow: 0px 0px 20px -15px #aca0a0;
     box-shadow: 0px 0px 12px -6px rgba(0, 0, 0, 0.2);
     // margin: 0 15px;
@@ -553,13 +578,8 @@ body {
   &__tour {
   }
   &__text {
-    // height: 73px;
     line-height: 1.462;
     overflow: hidden;
-  }
-  &__more {
-    // height: 100px;
-    // line-height: 100px;
   }
   &__bottom-info {
     display: flex;
@@ -700,6 +720,10 @@ body {
 
 .answers {
   padding: 40px 0 140px;
+  background-image: url(../images/answers-bg.png);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  // background-size: cover;
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -794,19 +818,23 @@ body {
     margin: 60px auto 80px;
     width: 425px;
   }
-  &__form {
-    margin: 0 auto;
+  &__wrapper {
+    // display: flex;
+    // justify-content: center;
   }
 }
 
 .reserve-form {
-  padding: 55px 65px;
   max-width: 540px;
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
   color: rgb(255, 255, 255);
   backdrop-filter: blur(10px);
   border: 1px solid #fff;
+  padding: 55px 65px;
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
   &__title {
     text-align: center;
     font-size: 25px;
@@ -821,6 +849,7 @@ body {
     background: transparent;
     margin-bottom: 10px;
     outline: 0;
+    color: #fff;
     &::placeholder {
       color: #fff;
     }
@@ -838,6 +867,13 @@ body {
   }
   &__btn {
   }
+  &__thanks,
+  &__error {
+    font-size: 30px;
+    font-family: 'PlayfairDisplay-Regular', serif;
+    text-align: center;
+    display: none;
+  }
 }
 
 #formCheck {
@@ -850,15 +886,61 @@ body {
 .communication {
   padding-top: 140px;
   &__title {
-    // margin-bottom: 75px;
   }
   &__wrapper {
     display: flex;
     justify-content: space-between;
   }
   &__map {
-    // display: flex;
-    // justify-content: center;
+    width: 100%;
+  }
+  .adresses {
+    &__btns {
+      border: 1px solid #699db2;
+      width: 224px;
+      height: 60px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      font-family: 'Montserrat-Bold', sans-serif;
+      margin: 0 auto;
+      margin-bottom: 45px;
+      &:hover {
+      }
+    }
+    &__toggle {
+      position: absolute;
+      content: '';
+      border: 1px solid #699db2;
+      height: 60px;
+      border-radius: 40px;
+      width: 112px;
+      right: -1%;
+      transition: 0.5s;
+      background: #699db2;
+      z-index: -1;
+      // animation: mapToggle 3s infinite;
+    }
+    &__btn {
+      cursor: pointer;
+      background: transparent;
+      width: 112px;
+      border-radius: 40px;
+      height: 60px;
+      border: 1px solid transparent;
+      padding: 0;
+      &_active {
+        color: #fff;
+      }
+    }
+    &__map {
+      animation: mapShow 0.7s;
+    }
+    &__map-oslo {
+      display: none;
+    }
   }
 }
 
@@ -878,7 +960,7 @@ body {
 
 .information {
   background-image: url(../images/footer-bg.png);
-  background-position: bottom center;
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 300px;
@@ -964,6 +1046,20 @@ body {
   }
 }
 
+@keyframes mapShow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes tourShow {
   0% {
     opacity: 0;
@@ -988,3 +1084,5 @@ body {
     transform: scale(1);
   }
 }
+
+@import 'adaptive';

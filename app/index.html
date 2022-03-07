@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,7 +35,9 @@
               Добро пожаловать в самое захватывающее место на планете
             </div>
             <div class="main__title wow animate__animated animate__animated">НОРВЕГИЯ</div>
-            <button class="main__btn btn wow animate__animated animate__pulse">Выбрать тур</button>
+            <a class="main__btn btn wow animate__animated animate__pulse" href="#collage"
+              >Выбрать тур</a
+            >
           </div>
           <div class="main__inner advantage">
             <div class="advantage__item wow animate__animated animate__backInUp">
@@ -192,7 +194,7 @@
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
-                <div class="our-team__name">Марина</div>
+                <div class="our-team__name">Отто</div>
                 <img class="our-team__arrow-up" src="images/arrow-up.png" alt="" />
                 <img class="our-team__arrow-down" src="images/arrow-down.png" alt="" />
               </div>
@@ -245,7 +247,7 @@
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
-                <div class="our-team__name">Дарья</div>
+                <div class="our-team__name">Марсель</div>
                 <img class="our-team__arrow-up" src="images/arrow-up.png" alt="" />
                 <img class="our-team__arrow-down" src="images/arrow-down.png" alt="" />
               </div>
@@ -267,7 +269,10 @@
             </div>
           </div>
         </div>
-        <div class="team__pages"><span class="team__pages-span">1 </span>/ 8</div>
+        <div class="team__pages slide-pages">
+          <span class="team__pages-current current-page"></span>
+          <span class="team__pages-count count-page"></span>
+        </div>
       </div>
     </section>
 
@@ -1511,7 +1516,10 @@
             </div>
           </div>
         </div>
-        <div class="review__pages"><span class="review__pages-span">1 </span>/ 15</div>
+        <div class="review__pages slide-pages">
+          <span class="review__pages-current current-page">1</span>
+          <span class="review__pages-count count-page"> / 4</span>
+        </div>
       </div>
     </section>
 
@@ -1672,46 +1680,53 @@
     <section class="reserve">
       <div class="container">
         <h2 class="reserve__title title wow animate__animated animate__bounceInDown">
-          Где остановиться
+          Остались вопросы?
         </h2>
         <h3 class="reserve__subtitle subtitle wow animate__animated animate__fadeInUp">
           Отправьте свои данные с помощью формы, и мы перезвоним вам в течении часа в рабочее время,
           чтобы ответить на все интересующие вас вопросы.
         </h3>
       </div>
-      <form
-        class="reserve__form reserve-form wow animate__animated animate__flipInY"
-        action=""
-        method="POST"
-      >
-        <div class="reserve-form__title">Заполните форму</div>
-        <input
-          class="reserve-form__name"
-          type="text"
-          name="firstName"
-          placeholder="Ваше имя"
-          required
-        />
-        <input
-          class="reserve-form__phone"
-          type="text"
-          name="phoneNumber"
-          placeholder="Ваш телефон"
-          required
-        />
-        <label class="reserve-form__check" for="formCheck">
-          <input type="checkbox" id="formCheck" required />
-          <div>
-            Я соглашаюсь на обработку персональных данных, согласно
-            <a class="reserve-form__link" href="#"
-              >политике конфиденциальности<span> и </span>пользовательскому соглашению.</a
-            >
-          </div>
-        </label>
-        <button class="reserve-form__btn btn">Отправить!</button>
-      </form>
+      <div class="reserve__wrapper reserve-form">
+        <form
+          class="reserve-form__form wow animate__animated animate__flipInY"
+          action="https://webhook.site/3d277b72-7936-4491-ae33-95f18f261787"
+          method="post"
+        >
+          <div class="reserve-form__title">Заполните форму</div>
+          <input
+            id="formName"
+            class="reserve-form__name"
+            type="text"
+            name="firstName"
+            placeholder="Ваше имя"
+          />
+          <input
+            id="formPhone"
+            class="reserve-form__phone"
+            type="text"
+            name="phoneNumber"
+            placeholder="Ваш телефон"
+          />
+          <label class="reserve-form__check" for="formCheck">
+            <input type="checkbox" id="formCheck" name="check" />
+            <div>
+              Я соглашаюсь на обработку персональных данных, согласно
+              <a class="reserve-form__link" href="#"
+                >политике конфиденциальности<span> и </span>пользовательскому соглашению.</a
+              >
+            </div>
+          </label>
+          <button class="reserve-form__btn btn">Отправить!</button>
+        </form>
+        <div class="reserve-form__thanks">Спасибо, мы свяжемся с вами в ближайшее время!</div>
+        <div class="reserve-form__error">
+          Ошибка бронирования. Свяжитесь, пожалуйста, по номеру телефона.
+        </div>
+      </div>
     </section>
 
+    <!-- COMMUNICATION -->
     <section class="communication">
       <div class="container">
         <h2 class="communication__title title wow animate__animated animate__bounceInDown">
@@ -1734,12 +1749,26 @@
             <div class="contacts__text">nortour.norway@gmail.com</div>
           </div>
         </div>
-        <div class="information__">
-          <button class="route__btn">ЦЦЦЦЦ</button>
+        <div class="communication__map adresses">
+          <div class="adresses__btns">
+            <div class="adresses__toggle"></div>
+            <button class="adresses__btn adresses__btn_oslo">Осло</button>
+            <button class="adresses__btn adresses__btn_minsk adresses__btn_active">Минск</button>
+          </div>
           <iframe
+            class="adresses__map adresses__map-minsk"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.997562946853!2d27.5206215715965!3d53.90568731811191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcff7d8719b7d%3A0x85c2107fddb92690!2zMS3QuSDQl9Cw0LPQvtGA0L7QtNC90YvQuSDQv9C10YAuIDIwLCDQnNC40L3RgdC6LCDQkdC10LvQsNGA0YPRgdGM!5e0!3m2!1sru!2sru!4v1646247891919!5m2!1sru!2sru"
             width="100%"
             height="623"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+          <iframe
+            class="adresses__map adresses__map-oslo"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1999.7066232263792!2d10.750507415898225!3d59.920416170530764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e64349a68ad%3A0x1f8283b60bc9f83f!2zQmrDuHJuIMOFZ2UgSGVybWFuc2Vu!5e0!3m2!1sru!2snl!4v1646598579894!5m2!1sru!2snl"
+            height="623"
+            width="100%"
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
@@ -1748,6 +1777,7 @@
       </div>
     </section>
 
+    <!-- INFORMATION -->
     <section class="information">
       <div class="container">
         <div class="information__wrapper">
