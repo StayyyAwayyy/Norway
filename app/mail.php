@@ -1,11 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
-    $count = $_POST['amount'];
     $phone = $_POST['phone'];
-    $time = $_POST['time'];
 
-    $content = $name . ' оставил заявку на бронирование столика для ' . $count . ' человек в ' . $time . '. Его телефон: ' . $phone;
+    $content = $name . ' оставил заявку на бронирование. Его телефон: ' . $phone;
 
     $success = mail("callme@northerm-tour.com", 'Запрос на бронирование столика', $content);
 

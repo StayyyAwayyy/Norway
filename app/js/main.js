@@ -4,8 +4,6 @@ $(document).ready(function () {
 
   // team slider
   let teamSlider = $('.our-team');
-  let teamCurrent = $('.team__pages-current');
-  let teamCount = $('.team__pages-count');
   let teamItems = $('.our-team__item');
   let teamHideInfo = $('.our-team__info');
   let teamArrows = $('.our-team .slick-arrow');
@@ -15,24 +13,23 @@ $(document).ready(function () {
   $(teamSlider).slick({
     infinite: false,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     arrows: true,
-    variableWidth: true,
-    // focusOnSelect: true,
-    // autoplay: true,
-    // autoplaySpeed: 4000,
-    // centerMode: true,
-    // centerPadding: '60px',
-    // responsive: [
-    //   {
-    //     breakpoint: 1024,
-    //     settings: {
-    //       slidesToShow: 3,
-    //       slidesToScroll: 3,
-    //       dots: true,
-    //     },
-    //   },
-    // ],
+    // variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 1159,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+        // breakpoint: 809,
+        // settings: {
+        //   slidesToShow: 1,
+        //   slidesToScroll: 1,
+        // },
+      },
+    ],
   });
 
   // let slickItem = $('.slick-slide');
@@ -41,11 +38,12 @@ $(document).ready(function () {
   // });
 
   $(teamSlider).on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    let teamCurrent = $('.team__pages-current');
+    let teamCount = $('.team__pages-count');
     $(teamCurrent).text(currentSlide / 3 + 1);
     $(teamCount).text(' / ' + slick.slideCount / 3);
   });
 
-  //
   for (let i = 0; i < teamItems.length; i++) {
     $(teamArrowUp[i]).click(() => {
       $(teamHideInfo[i]).css('transform', 'translate(0, -100%)');
@@ -112,7 +110,20 @@ $(document).ready(function () {
     slidesToShow: 2,
     slidesToScroll: 2,
     rows: 2,
-    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 1159,
+        settings: {
+          slidesToShow: 1,
+          // slidesToScroll: 2,
+        },
+        // breakpoint: 809,
+        // settings: {
+        //   slidesToShow: 1,
+        //   slidesToScroll: 1,
+        // },
+      },
+    ],
   });
 
   // review slider
@@ -127,6 +138,20 @@ $(document).ready(function () {
     slidesToShow: 2,
     slidesToScroll: 2,
     variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 919,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+        // breakpoint: 809,
+        // settings: {
+        //   slidesToShow: 1,
+        //   slidesToScroll: 1,
+        // },
+      },
+    ],
   });
 
   $(reviewSlider).on('afterChange', function (event, slick, currentSlide, nextSlide) {
@@ -205,17 +230,20 @@ $(document).ready(function () {
   // form
 
   let reserveFormBtn = $('.reserve-form__btn');
+  let reserveFormAgree = $('.reserve-form__check-agree');
+  let loader = $('.loader');
 
   $(reserveFormBtn).click((event) => {
-    let reserveForm = $('.reserve-form');
+    let reserveForm = $('.reserve-form__form');
     let reserveFormInp = $('.reserve-form input');
     let reserveFormName = $('.reserve-form__name');
     let reserveFormPhone = $('.reserve-form__phone');
     let reserveFormCheck = $('#formCheck');
+    let reserveAgreeErr = $('.reserve-form__agree-error');
 
     for (let i = 0; i < reserveFormInp.length; i++) {
       if (!$(reserveFormInp[i]).val()) {
-        $(reserveFormInp[i]).css('border', '1px solid red');
+        $(reserveFormInp[i]).css('border', '1px solid #f36c6c');
         event.preventDefault();
       } else if ($(reserveFormInp[i]).val()) {
         $(reserveFormInp[i]).css('border', '1px solid #fff');
@@ -223,21 +251,61 @@ $(document).ready(function () {
       }
     }
 
+    if (!reserveFormCheck.prop('checked')) {
+      $(reserveAgreeErr).show();
+      event.preventDefault();
+    } else {
+      $(reserveAgreeErr).hide();
+    }
+
     if (reserveFormName.val() && reserveFormPhone.val() && reserveFormCheck.prop('checked')) {
+      $(loader).show();
       $.ajax({
         type: 'POST',
         url: '../mail.php',
-        data: 'name=' + reserveFormName.val() + '&phone' + reserveFormPhone.val(),
+        // data: 'name=' + reserveFormName.val() + '&phone' + reserveFormPhone.val(),
+        data: {
+          name: reserveFormName.val(),
+          phone: reserveFormPhone.val(),
+        },
         success: () => {
+          $(loader).hide();
           $(reserveForm).hide();
           $('.reserve-form__thanks').show();
         },
         error: () => {
+          $(loader).hide();
           $(reserveForm).hide();
           $('.reserve-form__error').show();
         },
       });
-    } else {
     }
   });
+
+  // popup
+
+  let popUp = $('.popup');
+  let popUpForm = $('.popup__form');
+  let toursReserveBtn = $('.tours__btn');
+
+  $(toursReserveBtn).click(() => {
+    $(popUp).css('display', 'flex');
+    $(popUpForm).css('visibility', 'visible');
+  });
+
+  $('#popup__close-svg, #popup__close-path, .popup').click((event) => {
+    if (
+      event.target.id === 'popup__close-svg' ||
+      event.target.id === 'popup__close-path' ||
+      event.target.className === 'popup'
+    ) {
+      $(popUp).hide();
+    }
+  });
+
+  // $(document).click((e) => {
+  //   if (!$(e.target).closest(popUp).length) {
+  //     $(popUp).hide();
+  //   }
+  // });
 });

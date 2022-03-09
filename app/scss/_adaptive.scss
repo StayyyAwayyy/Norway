@@ -1,2 +1,62 @@
-@media screen and(max-width: 1600px) {
+@media screen and(min-width: 1921px) {
+}
+
+// 1024-1199
+@media screen and(max-width: 1199px) {
+}
+
+@media screen and(max-width: 1159px) {
+  .our-team {
+    max-width: 600px;
+  }
+  .tour-slider {
+    max-width: 500px;
+  }
+}
+
+@media screen and(max-width: 1139px) {
+  .about {
+    &__inner {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__item {
+      margin-bottom: 50px;
+    }
+    &__absolute {
+      position: relative;
+      top: 0;
+      left: 0;
+      justify-content: end;
+    }
+    &__absolute-img {
+      border: none;
+      order: 2;
+    }
+    &__absolute-text {
+      margin-left: 0;
+      margin-right: 80px;
+    }
+  }
+  .communication {
+    &__wrapper {
+      justify-content: space-evenly;
+    }
+  }
+}
+
+// 768-1023
+@media screen and(max-width: 1023px) {
+}
+
+// 580-767
+@media screen and(max-width: 767px) {
+}
+
+// 480-579
+@media screen and(max-width: 579px) {
+}
+
+// 320-479
+@media screen and(max-width: 479px) {
 }
