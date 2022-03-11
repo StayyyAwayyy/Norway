@@ -7,10 +7,13 @@
 
 @media screen and(max-width: 1159px) {
   .our-team {
-    max-width: 600px;
+    max-width: 70%;
   }
   .tour-slider {
-    max-width: 500px;
+    max-width: 60%;
+  }
+  .review-slider {
+    max-width: 60%;
   }
 }
 
@@ -49,8 +52,129 @@
 @media screen and(max-width: 1023px) {
 }
 
+@media screen and(max-width: 899px) {
+  .suite {
+    &__item {
+      flex-direction: column;
+    }
+    &__info {
+      margin-top: 40px;
+      &:nth-child(1n) {
+        order: 2;
+      }
+    }
+  }
+  .information {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__logo,
+    &__subscription {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@media screen and(max-width: 819px) {
+  .our-team {
+    max-width: 50%;
+  }
+  .answers {
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__accordion {
+      margin-top: 25px;
+      max-width: 445px;
+    }
+  }
+}
+
 // 580-767
 @media screen and(max-width: 767px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .advantage {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tour-slider {
+    max-width: 70%;
+  }
+  .review-slider {
+    max-width: 70%;
+  }
+  .suite {
+    &__text {
+      // margin: 40px 0;
+    }
+  }
+}
+
+@media screen and(max-width: 689px) {
+  .about {
+    &__item {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__info {
+      margin: 50px auto;
+    }
+    &__absolute {
+      flex-wrap: wrap;
+      justify-content: center;
+      &-img {
+        order: 1;
+      }
+      &-text {
+        order: 2;
+        margin: 50px auto 0;
+      }
+    }
+  }
+  .route {
+    &__wrapper {
+      flex-direction: column;
+      position: relative;
+    }
+    &__map {
+      left: unset;
+      right: -60px;
+      width: 400px;
+    }
+    &__menu {
+      order: 1;
+      display: flex;
+    }
+    &__inner {
+      order: 2;
+      padding: 0;
+    }
+    &__menu {
+      position: absolute;
+      top: 450px;
+    }
+  }
+  .tours {
+    &__info {
+      margin-bottom: 460px;
+    }
+  }
+
+  .contacts {
+    flex-direction: column;
+    align-items: center;
+    &__item {
+      max-width: 320px;
+      &:not(:last-child) {
+        margin-bottom: 50px;
+      }
+    }
+  }
 }
 
 // 480-579

@@ -50,7 +50,8 @@ body {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
-  height: 870px;
+  // height: 870px;
+  height: 100vh;
   color: #fff;
   &__header {
     padding: 25px 0;
@@ -164,7 +165,7 @@ body {
     max-width: 350px;
   }
   &__info {
-    width: 470px;
+    max-width: 470px;
     margin-top: 85px;
     margin-left: 80px;
   }
@@ -192,7 +193,7 @@ body {
     max-height: 305px;
   }
   &__absolute-text {
-    width: 425px;
+    max-width: 425px;
     margin-left: 80px;
     margin-top: 70px;
   }
@@ -220,7 +221,7 @@ body {
 
 .our-team {
   max-width: 920px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 40px;
   &__item {
     position: relative;
     overflow: hidden;
@@ -308,26 +309,18 @@ body {
     align-items: center;
     justify-content: space-between;
     position: relative;
-
-    &::before {
-      content: url(../images/route_map.png);
-      position: absolute;
-      top: -200px;
-      left: -20px;
-      z-index: -1;
+  }
+  &__map {
+    position: absolute;
+    top: -200px;
+    left: -20px;
+    img {
+      width: 100%;
     }
   }
   &__title {
     margin-bottom: 70px;
   }
-
-  // &__map {
-  //   content: url(../images/route_map.png);
-  //   position: absolute;
-  //   top: -100px;
-  //   left: 35px;
-  //   z-index: -1;
-  // }
   &__inner {
     margin: 0 auto;
     padding-left: 50px;
@@ -358,11 +351,11 @@ body {
 }
 
 .tours {
-  height: 562px;
+  // height: 562px;
   max-width: 428px;
   &__item {
     animation: tourShow 3s;
-    height: 562px;
+    // height: 562px;
     display: none;
     transition: 0.4s;
     &:first-child {
@@ -375,11 +368,11 @@ body {
   }
   &__info {
     display: flex;
+    margin: 25px 0 75px;
   }
   &__info-item {
     display: flex;
     align-items: center;
-    margin: 25px 0 75px;
     svg {
       margin-right: 10px;
     }
@@ -435,20 +428,8 @@ body {
     margin: 0 15px;
   }
   &__item {
-    // background-image: url(../images/tour-slide1.png);
     color: #fff;
     margin-bottom: 30px;
-    // position: relative;
-
-    img {
-      // position: absolute;
-      // z-index: -1;
-      // top: 0;
-      // left: 0;
-      // width: 100%;
-      // height: 100%;
-      // overflow: hidden;
-    }
   }
   &__background {
     display: flex;
@@ -475,12 +456,6 @@ body {
     svg {
       margin-right: 10px;
     }
-  }
-  &__days {
-  }
-  &__cost {
-  }
-  &__amount {
   }
   &__btn {
     width: 180px;
@@ -545,7 +520,7 @@ body {
   max-width: 920px;
   margin: 0 auto 40px;
   &__item {
-    width: 445px;
+    // width: 445px;
     height: 370px;
     padding: 30px 40px 30px 30px;
     background: #fff;
@@ -1037,9 +1012,32 @@ body {
   &__title {
     font-size: 20px;
     font-family: 'PlayfairDisplay-Regular', serif;
+    margin-bottom: 30px;
   }
-
   &__items {
+    display: flex;
+    justify-content: center;
+  }
+  &__item {
+    // width: 25px;
+    height: 25px;
+    margin: 0 10px;
+    transition: 0.5;
+    &:hover .social__icon {
+      opacity: 0.1;
+      transition: 0.5;
+    }
+  }
+  &__icon {
+    height: 25px;
+    // svg:hover {
+    //   transition: 0.5;
+    // transform: scale(2);
+    // }
+    // &:hover {
+    //   opacity: 0.1;
+    //   transition: 0.5;
+    // }
   }
   &__inst {
   }
@@ -1047,7 +1045,9 @@ body {
   }
   &__twitter {
   }
-  &__youtube {
+  &__youtube path {
+    height: 100%;
+    // width: 40px;
   }
 }
 

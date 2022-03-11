@@ -13,9 +13,8 @@ $(document).ready(function () {
   $(teamSlider).slick({
     infinite: false,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     arrows: true,
-    // variableWidth: true,
     responsive: [
       {
         breakpoint: 1159,
@@ -23,11 +22,13 @@ $(document).ready(function () {
           slidesToShow: 2,
           slidesToScroll: 2,
         },
-        // breakpoint: 809,
-        // settings: {
-        //   slidesToShow: 1,
-        //   slidesToScroll: 1,
-        // },
+      },
+      {
+        breakpoint: 819,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
       },
     ],
   });
@@ -85,6 +86,11 @@ $(document).ready(function () {
   // $('.tours').slick({
   //   vertical: true,
   //   verticalSwiping: true,
+  //   dots: true,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   infinite: false,
+  //   arrows: false,
   // });
 
   // $('#d1').click(() => {
@@ -115,7 +121,7 @@ $(document).ready(function () {
         breakpoint: 1159,
         settings: {
           slidesToShow: 1,
-          // slidesToScroll: 2,
+          slidesToScroll: 1,
         },
         // breakpoint: 809,
         // settings: {
@@ -137,10 +143,9 @@ $(document).ready(function () {
     infinite: false,
     slidesToShow: 2,
     slidesToScroll: 2,
-    variableWidth: true,
     responsive: [
       {
-        breakpoint: 919,
+        breakpoint: 1159,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
