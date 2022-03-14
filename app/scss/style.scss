@@ -304,18 +304,23 @@ body {
 // route
 .route {
   padding: 100px 0 200px;
+  .container {
+    position: relative;
+  }
   &__wrapper {
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
   }
   &__map {
     position: absolute;
-    top: -200px;
-    left: -20px;
+    top: -100px;
+    left: 20px;
+    // max-width: 600px;
     img {
-      width: 100%;
+      // position: absolute;
     }
   }
   &__title {
@@ -354,10 +359,9 @@ body {
   // height: 562px;
   max-width: 428px;
   &__item {
-    animation: tourShow 3s;
+    animation: tourShow 2s;
     // height: 562px;
     display: none;
-    transition: 0.4s;
     &:first-child {
       display: block;
     }
@@ -525,6 +529,9 @@ body {
     padding: 30px 40px 30px 30px;
     background: #fff;
     box-shadow: 0px 0px 12px -6px rgba(0, 0, 0, 0.2);
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
   }
   &__main-info {
     display: flex;
@@ -532,13 +539,27 @@ body {
     margin-bottom: 30px;
   }
   &__photo {
-    width: 100px;
-    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     border-radius: 50%;
     margin-right: 25px;
     background-position: center;
   }
   &__top-info {
+  }
+  &__info {
+    height: 165px;
+    // animation: suiteShow 1s;
+  }
+  &__hidden {
+    display: none;
+    animation: reviewHidden 2s;
+  }
+  &__more {
+    border-bottom: 1px solid #242424;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 30px;
   }
   &__name {
     margin-bottom: 15px;
@@ -614,7 +635,7 @@ body {
   &__title {
   }
   &__subtitle {
-    width: 485px;
+    max-width: 485px;
     margin-top: 50px;
     margin-bottom: 80px;
   }
@@ -726,6 +747,9 @@ body {
     &:last-child {
       border-bottom: 1px solid #d4d4d4;
     }
+    // .accordion__content:first-child {
+    //   display: block;
+    // }
   }
   &__title {
     font-size: 20px;
@@ -746,10 +770,6 @@ body {
       position: absolute;
       right: 20px;
       top: 18px;
-    }
-    &_active {
-      // background: #455b64;
-      // color: #fefcfe;
     }
   }
   &__content {
@@ -1150,6 +1170,18 @@ body {
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes reviewHidden {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

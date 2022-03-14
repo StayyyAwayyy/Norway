@@ -1,14 +1,32 @@
 $(document).ready(function () {
-  // wow animate
+  //
+  //  wow animate
+  //
   new WOW().init();
 
+  //
   // team slider
+  //
   let teamSlider = $('.our-team');
   let teamItems = $('.our-team__item');
   let teamHideInfo = $('.our-team__info');
-  let teamArrows = $('.our-team .slick-arrow');
   let teamArrowUp = $('.our-team__arrow-up');
   let teamArrowDown = $('.our-team__arrow-down');
+  let teamCurrent = $('.team__pages-current');
+  let teamCount = $('.team__pages-count');
+
+  $(teamSlider).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    if ($(window).width() > '1159') {
+      $(teamCurrent).text(slick.currentSlide / 3 + 1 + ' ');
+      $(teamCount).text(' / ' + slick.slideCount / 3);
+    } else if ($(window).width() < '1159' && $(window).width() > '819') {
+      $(teamCurrent).text(slick.currentSlide / 2 + 1 + ' ');
+      $(teamCount).text(' / ' + slick.slideCount / 2);
+    } else {
+      $(teamCurrent).text(slick.currentSlide + 1 + ' ');
+      $(teamCount).text(' / ' + slick.slideCount / 1);
+    }
+  });
 
   $(teamSlider).slick({
     infinite: false,
@@ -33,18 +51,6 @@ $(document).ready(function () {
     ],
   });
 
-  // let slickItem = $('.slick-slide');
-  // $('.our-team').on('afterChange', function (event, slick, currentSlide, nextSlide) {
-  //   $('.team__pages-span').text(currentSlide / 3 + 1);
-  // });
-
-  $(teamSlider).on('afterChange', function (event, slick, currentSlide, nextSlide) {
-    let teamCurrent = $('.team__pages-current');
-    let teamCount = $('.team__pages-count');
-    $(teamCurrent).text(currentSlide / 3 + 1);
-    $(teamCount).text(' / ' + slick.slideCount / 3);
-  });
-
   for (let i = 0; i < teamItems.length; i++) {
     $(teamArrowUp[i]).click(() => {
       $(teamHideInfo[i]).css('transform', 'translate(0, -100%)');
@@ -64,7 +70,9 @@ $(document).ready(function () {
     $(teamArrowUp).show();
   });
 
+  //
   // route
+  //
 
   let routeCurrentItem = $('.route__menu-item_active');
   let routeMenuItem = $('.route__menu-item');
@@ -139,6 +147,18 @@ $(document).ready(function () {
   let reviewCount = $('.review__pages-count');
   let slickActiveReview = $('.review-slider .slick-active');
 
+  $(reviewSlider).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    // $(reviewCurrent).text(currentSlide / 2 + 1);
+    // $(reviewCount).text(' / ' + slick.slideCount);
+    if ($(window).width() > '1159') {
+      $(reviewCurrent).text(slick.currentSlide / 2 + 1 + ' ');
+      $(reviewCount).text(' / ' + slick.slideCount / 2);
+    } else {
+      $(reviewCurrent).text(slick.currentSlide / 1 + 1 + ' ');
+      $(reviewCount).text(' / ' + slick.slideCount / 1);
+    }
+  });
+
   $(reviewSlider).slick({
     infinite: false,
     slidesToShow: 2,
@@ -159,25 +179,28 @@ $(document).ready(function () {
     ],
   });
 
-  $(reviewSlider).on('afterChange', function (event, slick, currentSlide, nextSlide) {
-    $(reviewCurrent).text(currentSlide / 2 + 1);
-    $(reviewCount).text(' / ' + slick.slideCount);
-  });
-
-  $(reviewSlider).on('init', function (event, slick) {
-    // $(reviewSlider).append(sliderCounter);
-    // updateSliderCounter(slick);
-    $(reviewCurrent).text(currentSlide / 2 + 1);
-    $(reviewCount).text(' / ' + slick.slideCount);
-  });
-
   // read more
 
-  let readMore = $('.review-slider__more');
-  readMore.click(() => {
-    readMore.hide();
-    $('.review-slider__text').css('height', '173px');
-  });
+  let readMoreBtn = $('.review-slider__more');
+
+  for (let i = 0; i < readMoreBtn.length; i++) {
+    $(readMoreBtn[i]).click(() => {
+      let dots = $('.review-slider__dots');
+      let hiddenText = $('.review-slider__hidden');
+
+      if ($(dots[i]).css('display') === 'none') {
+        $(dots[i]).show();
+        $(readMoreBtn[i]).text('Читать больше');
+        $(readMoreBtn[i]).css('margin-top', '30px');
+        $(hiddenText[i]).hide();
+      } else {
+        $(dots[i]).hide();
+        $(readMoreBtn[i]).text('Читать меньше');
+        $(readMoreBtn[i]).css('margin-top', '5px');
+        $(hiddenText[i]).show();
+      }
+    });
+  }
 
   // suite
 
@@ -196,11 +219,12 @@ $(document).ready(function () {
 
   // accordion
 
+  $($('.accordion__content')[0]).css('display', 'block');
+
   $('.active__item .accordion__content').slideDown();
 
   $('.accordion__title').on('click', function () {
     $('.accordion__content').not($(this).next()).slideUp(299);
-
     $('.accordion__item').removeClass('accordion__item_active');
     $(this).next().slideDown(299).parent().addClass('accordion__item_active');
   });
