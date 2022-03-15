@@ -105,8 +105,10 @@ $(document).ready(function () {
   //   // $($('.tours__item')[1]).addClass('slick-active');
   //   $(tours__item[2]).addClass('slick-active');
   // });
+
   let toursItems = $('.tours__item');
   let toursBtn = $('.route__menu-item');
+
   for (let i = 0; i < toursItems.length; i++) {
     $($(toursBtn)[i]).click(() => {
       $(toursItems).hide();
@@ -115,10 +117,10 @@ $(document).ready(function () {
       $($(toursBtn)[i]).addClass('route__menu-item_active');
     });
   }
-  // for (let i = 0; i < toursBtn.length; i++) {
-  //   $($(toursBtn)[i]).click(() => {});
-  // }
 
+  //
+  // collage slider
+  //
   $('.tour-slider').slick({
     infinite: false,
     slidesToShow: 2,
@@ -140,8 +142,18 @@ $(document).ready(function () {
     ],
   });
 
-  // review slider
+  let collageBtn = $('.tour-slider__btn');
 
+  for (let i = 0; i < collageBtn.length; i++) {
+    $(collageBtn[i]).click(() => {
+      $(popup).css('display', 'flex');
+      $(popupForm).css('visibility', 'visible');
+    });
+  }
+
+  //
+  // review slider
+  //
   let reviewSlider = $('.review-slider');
   let reviewCurrent = $('.review__pages-current');
   let reviewCount = $('.review__pages-count');
@@ -179,8 +191,6 @@ $(document).ready(function () {
     ],
   });
 
-  // read more
-
   let readMoreBtn = $('.review-slider__more');
 
   for (let i = 0; i < readMoreBtn.length; i++) {
@@ -202,8 +212,9 @@ $(document).ready(function () {
     });
   }
 
+  //
   // suite
-
+  //
   let suiteMore = $('.suite__more');
   let suiteLess = $('.suite__less');
   suiteMore.click(() => {
@@ -217,8 +228,9 @@ $(document).ready(function () {
     suiteLess.hide();
   });
 
+  //
   // accordion
-
+  //
   $($('.accordion__content')[0]).css('display', 'block');
 
   $('.active__item .accordion__content').slideDown();
@@ -229,18 +241,16 @@ $(document).ready(function () {
     $(this).next().slideDown(299).parent().addClass('accordion__item_active');
   });
 
+  //
   // map
-
+  //
   let btnMap = $('.adresses__btn');
   let btnMinsk = $('.adresses__btn_minsk');
   let btnOslo = $('.adresses__btn_oslo');
-  let btnToggle = $('.adresses__toggle');
-
-  // $(btnMap).click(() => {
-  //   $(btnToggle).css('animation', 'none');
-  // });
+  // let btnToggle = $('.adresses__toggle');
 
   $(btnMinsk).click(function () {
+    initMapMinsk();
     $(btnMap).removeClass('adresses__btn_active');
     $(this).addClass('adresses__btn_active');
     $('.adresses__toggle').css('transform', 'translate(1%, 0)');
@@ -249,6 +259,7 @@ $(document).ready(function () {
   });
 
   $(btnOslo).click(function () {
+    initMapOslo();
     $(btnMap).removeClass('adresses__btn_active');
     $(this).addClass('adresses__btn_active');
     $('.adresses__toggle').css('transform', 'translate(-101%, 0)');
@@ -256,8 +267,9 @@ $(document).ready(function () {
     $('.adresses__map-oslo').show();
   });
 
+  //
   // form
-
+  //
   let reserveFormBtn = $('.reserve-form__btn');
   let reserveFormAgree = $('.reserve-form__check-agree');
   let loader = $('.loader');
@@ -311,15 +323,17 @@ $(document).ready(function () {
     }
   });
 
+  //
   // popup
-
-  let popUp = $('.popup');
-  let popUpForm = $('.popup__form');
+  //
+  let popup = $('.popup');
+  let popupForm = $('.popup__form');
   let toursReserveBtn = $('.tours__btn');
+  let popupBtn = $('.popup__btn');
 
   $(toursReserveBtn).click(() => {
-    $(popUp).css('display', 'flex');
-    $(popUpForm).css('visibility', 'visible');
+    $(popup).css('display', 'flex');
+    $(popupForm).css('visibility', 'visible');
   });
 
   $('#popup__close-svg, #popup__close-path, .popup').click((event) => {
@@ -328,13 +342,87 @@ $(document).ready(function () {
       event.target.id === 'popup__close-path' ||
       event.target.className === 'popup'
     ) {
-      $(popUp).hide();
+      $(popup).hide();
     }
   });
 
-  // $(document).click((e) => {
-  //   if (!$(e.target).closest(popUp).length) {
-  //     $(popUp).hide();
-  //   }
-  // });
+  $(popupBtn).click((event) => {
+    let popupInp = $('.popup__form input');
+    let popupName = $('.popup__name');
+    let popupPhone = $('.popup__phone');
+    let popupCheck = $('#popupFormCheck');
+    let popupErr = $('.popup__agree-error');
+
+    for (let i = 0; i < popupInp.length; i++) {
+      if (!$(popupInp[i]).val()) {
+        $(popupInp[i]).css('border', '1px solid #f36c6c');
+        event.preventDefault();
+      } else if ($(popupInp[i]).val()) {
+        $(popupInp[i]).css('border', '1px solid #fff');
+        event.preventDefault();
+      }
+    }
+
+    if (!popupCheck.prop('checked')) {
+      $(popupErr).show();
+      event.preventDefault();
+    } else {
+      $(popupErr).hide();
+    }
+
+    if (popupName.val() && popupPhone.val() && popupCheck.prop('checked')) {
+      $(loader).show();
+      $.ajax({
+        type: 'POST',
+        url: '../mail.php',
+        // data: 'name=' + reserveFormName.val() + '&phone' + reserveFormPhone.val(),
+        data: {
+          name: popupName.val(),
+          phone: popupPhone.val(),
+        },
+        success: () => {
+          $(loader).hide();
+          $(popupForm).hide();
+          $('.popup__thanks').show();
+        },
+        error: () => {
+          $(loader).hide();
+          $(popupForm).hide();
+          $('.popup__error').show();
+        },
+      });
+    }
+  });
+
+  // function initMap() {
+  //   const osloWindow = document.getElementById('osloWindow');
+
+  //   const oslo = { lat: 59.914117, lng: 10.762495 },
+  //     markerImage = 'images/google-marker.png';
+  //   const map = new google.maps.Map(document.getElementById('map'), {
+  //     zoom: 16,
+  //     center: oslo,
+  //   });
+  //   const markerOslo = new google.maps.Marker({
+  //     position: oslo,
+  //     map: map,
+  //     animation: google.maps.Animation.DROP,
+  //     icon: markerImage,
+  //   });
+  //   const infowindow = new google.maps.InfoWindow({
+  //     // content: osloWindow,
+  //     content: `<div class="osloWindow" id="osloWindow">
+  //                 <div class="osloWindow__title">Туристическая компания «Northern Tour»</div>
+  //                 <div class="osloWindow__adress">0187 Осло, Норвегия</div>
+  //                 <div class="osloWindow__hours"><span>Пн — Пт: </span>с 10:00 до 22:00</div>
+  //                 <div class="osloWindow__weekends"><span>Сб — Вс: </span>выходной</div>
+  //               </div>`,
+  //   });
+
+  //   infowindow.open(map, markerOslo);
+
+  //   markerOslo.addListener('click', function () {
+  //     infowindow.open(map, markerOslo);
+  //   });
+  // }
 });
