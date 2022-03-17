@@ -5,6 +5,28 @@ $(document).ready(function () {
   new WOW().init();
 
   //
+  // scroll
+  //
+  let menuItems = $('.menu__link');
+  for (let i = 0; i < menuItems.length; i++) {
+    $(menuItems[i]).on('click', function (event) {
+      if (this.hash !== '') {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html, body').animate(
+          {
+            scrollTop: $(hash).offset().top,
+          },
+          800,
+          function () {
+            window.location.hash = hash;
+          }
+        );
+      }
+    });
+  }
+
+  //
   // team slider
   //
   let teamSlider = $('.our-team');
@@ -133,11 +155,15 @@ $(document).ready(function () {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
-        // breakpoint: 809,
-        // settings: {
-        //   slidesToShow: 1,
-        //   slidesToScroll: 1,
-        // },
+      },
+      {
+        breakpoint: 690,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          rows: 3,
+        },
       },
     ],
   });
@@ -244,13 +270,12 @@ $(document).ready(function () {
   //
   // map
   //
+  initMapMinsk();
   let btnMap = $('.adresses__btn');
   let btnMinsk = $('.adresses__btn_minsk');
   let btnOslo = $('.adresses__btn_oslo');
-  // let btnToggle = $('.adresses__toggle');
 
   $(btnMinsk).click(function () {
-    initMapMinsk();
     $(btnMap).removeClass('adresses__btn_active');
     $(this).addClass('adresses__btn_active');
     $('.adresses__toggle').css('transform', 'translate(1%, 0)');
@@ -259,12 +284,15 @@ $(document).ready(function () {
   });
 
   $(btnOslo).click(function () {
-    initMapOslo();
     $(btnMap).removeClass('adresses__btn_active');
     $(this).addClass('adresses__btn_active');
     $('.adresses__toggle').css('transform', 'translate(-101%, 0)');
     $('.adresses__map-minsk').hide();
     $('.adresses__map-oslo').show();
+  });
+
+  $(btnOslo).one('click', function () {
+    initMapOslo();
   });
 
   //
