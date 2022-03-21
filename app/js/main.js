@@ -7,9 +7,12 @@ $(document).ready(function () {
   //
   // scroll
   //
-  let menuItems = $('.menu__link');
+
+  let menuItems = $('.btn_soft-scroll');
+
   for (let i = 0; i < menuItems.length; i++) {
     $(menuItems[i]).on('click', function (event) {
+      console.log('1');
       if (this.hash !== '') {
         event.preventDefault();
         var hash = this.hash;
@@ -25,6 +28,51 @@ $(document).ready(function () {
       }
     });
   }
+
+  //
+  // burger
+  //
+
+  let menuBtn = $('.menu__burger');
+  let menu = $('.menu');
+
+  $(menuBtn).click(() => {
+    menuBtn.toggleClass('active');
+    menu.toggleClass('active');
+  });
+
+  $(window).scroll(() => {
+    menuBtn.removeClass('active');
+    menu.removeClass('active');
+  });
+
+  //
+  // header fixed
+  //
+  let headerOffset = $('.main__header').offset().top;
+  let aboutOffset = $('.about').offset().top;
+  let header = $('.header');
+  let headerMenu = $('.header__menu');
+
+  // $(window)
+  //   .resize()
+  //   .scroll(function () {
+  $(window).on('resize scroll', function () {
+    if ($(window).width() < '480') {
+      if (window.pageYOffset >= aboutOffset) {
+        $(header).addClass('header_fixed');
+        $(header).css('padding', '15px');
+        $(headerMenu).prependTo('body');
+      } else {
+        $(header).removeClass('header_fixed');
+        $(header).css('padding', '25px 0');
+        $(headerMenu).appendTo('.main__header');
+      }
+    } else {
+      $(header).removeClass('header_fixed');
+      $(headerMenu).appendTo('.main__header');
+    }
+  });
 
   //
   // team slider
@@ -64,7 +112,8 @@ $(document).ready(function () {
         },
       },
       {
-        breakpoint: 819,
+        breakpoint: 799,
+        // breakpoint: 579,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -157,7 +206,7 @@ $(document).ready(function () {
         },
       },
       {
-        breakpoint: 690,
+        breakpoint: 599,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -239,19 +288,35 @@ $(document).ready(function () {
   }
 
   //
-  // suite
+  // hotels
   //
   let suiteMore = $('.suite__more');
   let suiteLess = $('.suite__less');
+  let hotelNth2 = $('.suite__item:nth-child(n + 2)');
+  let hotelNth3 = $('.suite__item:nth-child(n + 3)');
+
   suiteMore.click(() => {
-    $('.suite__item:nth-child(n + 3)').css('display', 'flex');
-    suiteMore.hide();
-    suiteLess.show();
+    if ($(window).width() > '479') {
+      $(hotelNth3).css('display', 'flex');
+      suiteMore.hide();
+      suiteLess.show();
+    } else {
+      $(hotelNth2).css('display', 'flex');
+      suiteMore.hide();
+      suiteLess.show();
+    }
   });
+
   suiteLess.click(() => {
-    $('.suite__item:nth-child(n + 3)').css('display', 'none');
-    suiteMore.show();
-    suiteLess.hide();
+    if ($(window).width() > '479') {
+      $(hotelNth3).css('display', 'none');
+      suiteMore.show();
+      suiteLess.hide();
+    } else {
+      $(hotelNth2).css('display', 'none');
+      suiteMore.show();
+      suiteLess.hide();
+    }
   });
 
   //
@@ -295,6 +360,17 @@ $(document).ready(function () {
     initMapOslo();
   });
 
+  // ДОДЕЛАТь
+  // $(window).on('resize', function () {
+  if ($(window).width() < '579') {
+    $('.adresses').unwrap();
+  } else {
+    $('.adresses').wrap('<div class="container"></div>');
+  }
+
+  console.log('test');
+  // });
+
   //
   // form
   //
@@ -308,7 +384,7 @@ $(document).ready(function () {
     let reserveFormName = $('.reserve-form__name');
     let reserveFormPhone = $('.reserve-form__phone');
     let reserveFormCheck = $('#formCheck');
-    let reserveAgreeErr = $('.reserve-form__agree-error');
+    let reserveFormErr = $('.reserve-form__check');
 
     for (let i = 0; i < reserveFormInp.length; i++) {
       if (!$(reserveFormInp[i]).val()) {
@@ -321,11 +397,17 @@ $(document).ready(function () {
     }
 
     if (!reserveFormCheck.prop('checked')) {
-      $(reserveAgreeErr).show();
+      $(reserveFormErr).addClass('form__check_error');
       event.preventDefault();
     } else {
-      $(reserveAgreeErr).hide();
+      $(reserveFormErr).removeClass('form__check_error');
     }
+    // if (!reserveFormCheck.prop('checked')) {
+    //   $(reserveAgreeErr).show();
+    //   event.preventDefault();
+    // } else {
+    //   $(reserveAgreeErr).hide();
+    // }
 
     if (reserveFormName.val() && reserveFormPhone.val() && reserveFormCheck.prop('checked')) {
       $(loader).show();

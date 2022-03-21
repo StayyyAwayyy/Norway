@@ -10,28 +10,40 @@
 
   <body>
     <!-- MAIN -->
-    <section class="main">
-      <div class="container">
-        <header class="main__header header">
-          <div class="header__logo logo">
-            <a class="logo__link" href="">
-              <img class="logo__img" src="images/logo.png" alt="" />
-            </a>
-          </div>
-          <nav class="header__menu menu wow animate__animated animate__zoomIn">
-            <ul class="menu__list">
-              <li class="menu__item menu__item_active">
-                <a class="menu__link" href="#about">О нас</a>
-              </li>
-              <li class="menu__item"><a class="menu__link" href="#collage">Туры</a></li>
-              <li class="menu__item"><a class="menu__link" href="#review">Отзывы</a></li>
-              <li class="menu__item"><a class="menu__link" href="#answers">FAQ</a></li>
-              <li class="menu__item"><a class="menu__link" href="#communication">Контакты</a></li>
-            </ul>
-          </nav>
-          <div></div>
-        </header>
-        <div class="main__banner">
+    <section class="main" id="main">
+      <div class="container main__container">
+        <div class="main__inner">
+          <header class="main__header header">
+            <div class="header__logo logo">
+              <a class="logo__link btn_soft-scroll" href="#main">
+                <img class="logo__img" src="images/logo.png" alt="" />
+              </a>
+            </div>
+            <nav class="header__menu menu wow animate__animated animate__zoomIn">
+              <ul class="menu__list">
+                <li class="menu__item menu__item_active">
+                  <a class="menu__link btn_soft-scroll" href="#about">О нас</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link btn_soft-scroll" href="#collage">Туры</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link btn_soft-scroll" href="#review">Отзывы</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link btn_soft-scroll" href="#answers">FAQ</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link btn_soft-scroll" href="#communication">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="menu__burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </header>
           <div class="main__wrapper">
             <div class="main__subtitle wow animate__animated animate__animated">
               Добро пожаловать в самое захватывающее место на планете
@@ -39,11 +51,13 @@
             <div class="main__title wow animate__animated animate__animated">
               <img src="images/norway.png" alt="" />
             </div>
-            <a class="main__btn btn wow animate__animated animate__pulse" href="#collage"
+            <a
+              class="main__btn btn btn_soft-scroll wow animate__animated animate__pulse"
+              href="#collage"
               >Выбрать тур</a
             >
           </div>
-          <div class="main__inner advantage">
+          <div class="main__info advantage">
             <div class="advantage__item wow animate__animated animate__backInUp">
               <div class="advantage__num">138</div>
               <div class="advantage__text">
@@ -70,11 +84,9 @@
         </h2>
         <div class="about__inner">
           <div class="about__item">
-            <img
-              class="about__img wow animate__animated animate__bounceInLeft"
-              src="images/about_first-pic.png"
-              alt=""
-            />
+            <div class="about__img wow animate__animated animate__bounceInLeft">
+              <img src="images/about_first-pic.png" alt="" />
+            </div>
             <div class="about__info wow animate__animated animate__bounceInLeft">
               <div class="about__subtitle">Northern Tour</div>
               <div class="about__text">
@@ -86,7 +98,7 @@
             </div>
           </div>
           <div class="about__absolute wow animate__animated animate__bounceInRight">
-            <img class="about__absolute-img" src="images/about_second-pic.png" alt="" />
+            <div class="about__absolute-img"><img src="images/about_second-pic.png" alt="" /></div>
             <div class="about__absolute-text">
               Мы многие годы изучали популярные маршруты, чтобы сегодня радовать туристов
               невероятными видами и уникальными локациями. За 10 лет работы нами составлены 138
@@ -111,7 +123,7 @@
         <div class="team__wrapper our-team wow animate__animated animate__bounceIn">
           <div class="our-team__item">
             <div class="our-team__image">
-              <img class="our-team__img" src="images/team1.png" alt="" />
+              <img src="images/team1.png" alt="" />
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
@@ -143,7 +155,7 @@
 
           <div class="our-team__item">
             <div class="our-team__image">
-              <img class="our-team__img" src="images/team2.png" alt="" />
+              <img src="images/team2.png" alt="" />
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
@@ -170,7 +182,7 @@
 
           <div class="our-team__item">
             <div class="our-team__image">
-              <img class="our-team__img" src="images/team3.png" alt="" />
+              <img src="images/team3.png" alt="" />
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
@@ -198,7 +210,7 @@
 
           <div class="our-team__item">
             <div class="our-team__image">
-              <img class="our-team__img" src="images/team4.png" alt="" />
+              <img src="images/team4.png" alt="" />
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
@@ -226,7 +238,7 @@
 
           <div class="our-team__item">
             <div class="our-team__image">
-              <img class="our-team__img" src="images/team5.png" alt="" />
+              <img src="images/team5.png" alt="" />
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
@@ -253,7 +265,7 @@
 
           <div class="our-team__item">
             <div class="our-team__image">
-              <img class="our-team__img" src="images/team6.png" alt="" />
+              <img src="images/team6.png" alt="" />
             </div>
             <div class="our-team__info">
               <div class="our-team__info-show">
@@ -1910,8 +1922,14 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
             <img src="images/answers-img.png" alt="" />
           </div>
           <div class="answers__accordion accordion wow animate__animated animate__bounceInRight">
-            <div class="accordion__item">
-              <div class="accordion__title">Что входит в стоимость туров?</div>
+            <div class="accordion__item accordion__item_active">
+              <div class="accordion__title">
+                Что входит в стоимость туров?
+                <div class="accordion__icon">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
               <div class="accordion__content">
                 <ul>
                   <li>
@@ -1932,7 +1950,13 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
             </div>
 
             <div class="accordion__item">
-              <div class="accordion__title">Что не входит в стоимость туров?</div>
+              <div class="accordion__title">
+                Что не входит в стоимость туров?
+                <div class="accordion__icon">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
               <div class="accordion__content">
                 <ul>
                   <li>Туры не включают в себя все другие расходы во время поездки.</li>
@@ -1943,7 +1967,13 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
             </div>
 
             <div class="accordion__item">
-              <div class="accordion__title">Есть ли семейные туры?</div>
+              <div class="accordion__title">
+                Есть ли семейные туры?
+                <div class="accordion__icon">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
               <div class="accordion__content">
                 <ul>
                   <li>
@@ -1964,7 +1994,13 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
             </div>
 
             <div class="accordion__item">
-              <div class="accordion__title">Сколько человек в одной туристической группе?</div>
+              <div class="accordion__title">
+                Сколько человек в одной туристической группе?
+                <div class="accordion__icon">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
               <div class="accordion__content">
                 <ul>
                   <li>
@@ -1976,7 +2012,13 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
             </div>
 
             <div class="accordion__item">
-              <div class="accordion__title">Какие вещи взять с собой в путешествие?</div>
+              <div class="accordion__title">
+                Какие вещи взять с собой в путешествие?
+                <div class="accordion__icon">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
               <div class="accordion__content">
                 <ul>
                   <li>Деньги и документы</li>
@@ -2015,6 +2057,8 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
               type="text"
               name="firstName"
               placeholder="Ваше имя"
+              autocomplete="off"
+              ,
             />
             <input
               id="formPhone"
@@ -2022,6 +2066,8 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
               type="text"
               name="phoneNumber"
               placeholder="Ваш телефон"
+              autocomplete="off"
+              ,
             />
             <div class="reserve-form__check-rules form__check-rules">
               <input
@@ -2040,9 +2086,6 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
                     >политике конфиденциальности<span> и </span>пользовательскому соглашению.</a
                   >
                 </span>
-                <div class="reserve-form__agree-error form__agree-error">
-                  Нужно согласиться с условиями
-                </div>
               </label>
             </div>
             <button class="reserve-form__btn form__btn btn">Отправить!</button>
@@ -2240,7 +2283,22 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
             </div>
           </div>
         </div>
-        <div class="communication__map adresses">
+        <!-- <div class="communication__map adresses">
+          <div class="adresses__btns">
+            <div class="adresses__toggle"></div>
+            <button class="adresses__btn adresses__btn_oslo">Осло</button>
+            <button class="adresses__btn adresses__btn_minsk adresses__btn_active">Минск</button>
+          </div>
+          <div id="mapOslo" class="adresses__map adresses__map-oslo"></div>
+          <div id="mapMinsk" class="adresses__map adresses__map-minsk"></div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location">
+      <div class="container">
+        <div class="location__map adresses">
           <div class="adresses__btns">
             <div class="adresses__toggle"></div>
             <button class="adresses__btn adresses__btn_oslo">Осло</button>
@@ -2463,7 +2521,6 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
         const markerOslo = new google.maps.Marker({
           position: osloCenter,
           map: map,
-          // animation: google.maps.Animation.DROP,
           icon: markerImage,
         });
         const infowindow = new google.maps.InfoWindow({
@@ -2490,7 +2547,6 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
         const markerMinsk = new google.maps.Marker({
           position: minskCenter,
           map: map,
-          // animation: google.maps.Animation.DROP,
           icon: markerImage,
         });
         const infowindow = new google.maps.InfoWindow({

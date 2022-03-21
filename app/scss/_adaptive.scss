@@ -121,24 +121,17 @@
   .header {
     grid-template-columns: 1fr 2fr;
   }
-  .menu {
-    &__item {
-      // margin: 0 5px;
-    }
-  }
   .advantage {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .tour-slider {
-    // max-width: 70%;
-  }
-  // .review-slider {
-  //   max-width: 70%;
-  // }
-  .suite {
-    &__text {
-      // margin: 40px 0;
+    max-width: 318px;
+    display: block;
+    &__item {
+      align-items: flex-start;
+    }
+    &__item:first-child {
+      margin-bottom: 25px;
+    }
+    &__num {
+      font-size: 40px;
     }
   }
 }
@@ -197,10 +190,6 @@
       margin-bottom: 460px;
     }
   }
-  .tour-slider {
-    padding: 0;
-  }
-
   .contacts {
     flex-direction: column;
     align-items: center;
@@ -214,21 +203,10 @@
 }
 
 @media screen and(max-width: 599px) {
-  .advantage {
-    &__num {
-      font-size: 60px;
-    }
-  }
-  .our-team {
-    max-width: 100%;
+  .tour-slider {
     padding: 0;
-    .slick-prev {
-      left: 15px;
-      top: 107%;
-    }
-    .slick-next {
-      right: 15px;
-      top: 107%;
+    .slick-slide {
+      margin: 0;
     }
   }
   .review {
@@ -238,14 +216,13 @@
       padding: 0;
       margin-bottom: 65px;
     }
-
     .slick-prev {
       left: 15px;
-      top: 122%;
+      top: 117%;
     }
     .slick-next {
       right: 15px;
-      top: 122%;
+      top: 117%;
     }
   }
   .reserve {
@@ -262,25 +239,137 @@
 
 // 320-479
 @media screen and(max-width: 479px) {
-  .about {
-    &__img {
+  .title {
+    font-size: 30px;
+  }
+  .main {
+    &__wrapper {
+      // margin-top: 113px;
+      margin-bottom: 55px;
+    }
+    &__subtitle {
+      max-width: 250px;
+      margin: 0 auto;
+    }
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    // background-color: #3a577e;
+    // backdrop-filter: blur(10px);
+    z-index: 5;
+    &__menu {
+      display: none;
+      // transform: translateX(-130%);
+      // transition: transform 0.5s;
+    }
+    &_fixed + .main__banner {
+      padding-top: 293px;
+    }
+  }
+  .menu {
+    &__burger {
+      display: block;
+    }
+    &__link {
       width: 100%;
     }
+  }
+  .about {
+    &__img {
+      img {
+        width: 100%;
+      }
+    }
     &__absolute-img {
-      width: 100%;
+      img {
+        width: 100%;
+      }
     }
   }
   .advantage {
-    &__num {
-      font-size: 40px;
+    // padding-bottom: 30px;
+    // &__num {
+    //   font-size: 40px;
+    // }
+  }
+  .our-team {
+    max-width: 100%;
+    padding: 0;
+    .slick-prev {
+      left: 15px;
+      top: 111%;
+    }
+    .slick-next {
+      right: 15px;
+      top: 111%;
+    }
+    .slick-slide {
+      margin: 0 5px;
+    }
+    .slick-list {
+      padding: 0;
     }
   }
-  .about {
-    &__item {
-      // height: 300px;
+  .tours {
+    &__reserve {
+      justify-content: space-between;
     }
-    &__img {
-      // height: 300px;
+    &__btn {
+      margin: 0;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+  .tour-slider {
+    &__background {
+      align-items: center;
+    }
+    &__item {
+      text-align: center;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+    }
+    &__info {
+      margin-bottom: 40px;
+    }
+    &__info-item {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10px;
+      svg {
+        margin: 0 0 5px;
+      }
+    }
+  }
+  .review-slider {
+    &__main-info {
+      flex-direction: column;
+      text-align: center;
+    }
+    &__photo {
+      margin: 0 0 25px;
+    }
+    &__bottom-info {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__rating {
+      margin-bottom: 5px;
+    }
+  }
+
+  .suite {
+    &__text {
+      margin-bottom: 50px;
+    }
+    &__item {
+      &:nth-child(n + 2) {
+        display: none;
+        animation: suiteShow 1s;
+      }
     }
   }
   .communication {
@@ -290,6 +379,27 @@
     }
     &__wrapper {
       align-items: flex-start;
+    }
+  }
+  .map-window {
+    width: 100%;
+  }
+  .reserve {
+    &__subtitle {
+      margin-bottom: 60px;
+    }
+  }
+  .form {
+    &__text {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and(max-width: 376px) {
+  .main {
+    &__btn {
+      width: 100%;
     }
   }
 }
