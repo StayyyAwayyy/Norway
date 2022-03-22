@@ -276,6 +276,10 @@
     }
   }
   .about {
+    // padding-bottom: 120px;
+    &::after {
+      top: 95%;
+    }
     &__img {
       img {
         width: 100%;
@@ -286,12 +290,6 @@
         width: 100%;
       }
     }
-  }
-  .advantage {
-    // padding-bottom: 30px;
-    // &__num {
-    //   font-size: 40px;
-    // }
   }
   .our-team {
     max-width: 100%;
@@ -312,6 +310,9 @@
     }
   }
   .tours {
+    &__title {
+      font-size: 20px;
+    }
     &__reserve {
       justify-content: space-between;
     }
@@ -360,7 +361,20 @@
       margin-bottom: 5px;
     }
   }
-
+  .route {
+    padding-bottom: 115px;
+    &__title {
+      margin-bottom: 50px;
+    }
+  }
+  .collage {
+    padding-top: 125px;
+  }
+  .accordion {
+    &__title {
+      font-size: 14px;
+    }
+  }
   .suite {
     &__text {
       margin-bottom: 50px;
@@ -381,8 +395,15 @@
       align-items: flex-start;
     }
   }
+  .adresses {
+    &__map {
+      height: 380px;
+    }
+  }
   .map-window {
-    width: 100%;
+    // width: 100%;
+    width: 280px;
+    height: 200px;
   }
   .reserve {
     &__subtitle {
@@ -396,10 +417,25 @@
   }
 }
 
-@media screen and(max-width: 376px) {
+@media screen and(max-width: 374px) {
   .main {
     &__btn {
       width: 100%;
+    }
+  }
+  .about {
+    &__title {
+      text-align: left;
+    }
+  }
+  .team {
+    &__subtitle {
+      max-width: 280px;
+    }
+  }
+  .route {
+    &__title {
+      text-align: left;
     }
   }
 }

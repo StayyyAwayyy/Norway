@@ -235,9 +235,7 @@ $(document).ready(function () {
   let slickActiveReview = $('.review-slider .slick-active');
 
   $(reviewSlider).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    // $(reviewCurrent).text(currentSlide / 2 + 1);
-    // $(reviewCount).text(' / ' + slick.slideCount);
-    if ($(window).width() > '1159') {
+    if ($(window).width() > '998') {
       $(reviewCurrent).text(slick.currentSlide / 2 + 1 + ' ');
       $(reviewCount).text(' / ' + slick.slideCount / 2);
     } else {
@@ -252,7 +250,8 @@ $(document).ready(function () {
     slidesToScroll: 2,
     responsive: [
       {
-        breakpoint: 1159,
+        // breakpoint: 1159,
+        breakpoint: 999,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -276,12 +275,12 @@ $(document).ready(function () {
       if ($(dots[i]).css('display') === 'none') {
         $(dots[i]).show();
         $(readMoreBtn[i]).text('Читать больше');
-        $(readMoreBtn[i]).css('margin-top', '30px');
+        // $(readMoreBtn[i]).css('margin-top', '30px');
         $(hiddenText[i]).hide();
-      } else {
+      } else if ($(dots[i]).css('display') === 'inline') {
         $(dots[i]).hide();
         $(readMoreBtn[i]).text('Читать меньше');
-        $(readMoreBtn[i]).css('margin-top', '5px');
+        // $(readMoreBtn[i]).css('margin-top', '5px');
         $(hiddenText[i]).show();
       }
     });
@@ -362,11 +361,11 @@ $(document).ready(function () {
 
   // ДОДЕЛАТь
   // $(window).on('resize', function () {
-  if ($(window).width() < '579') {
-    $('.adresses').unwrap();
-  } else {
-    $('.adresses').wrap('<div class="container"></div>');
-  }
+  // if ($(window).width() < '579') {
+  //   $('.adresses').unwrap();
+  // } else {
+  //   $('.adresses').wrap('<div class="container"></div>');
+  // }
 
   console.log('test');
   // });
