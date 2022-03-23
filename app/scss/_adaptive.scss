@@ -158,20 +158,30 @@
     }
   }
   .route {
+    position: relative;
+    &__container {
+      position: static;
+    }
     &__wrapper {
       flex-direction: column;
       margin: 0 auto;
+      // display: flex;
     }
     &__map {
-      left: unset;
-      // right: calc(50% - 400px);
-      // width: 200px;
-      right: -60px;
-      width: 425px;
+      min-width: 300px;
+      // max-width: 400px;
+      // left: 50%;
+      // transform: translateX(-50%);
+      // right: -20px;
+      // left: unset;
+      // top: 0;
+      top: -235px;
+      right: 20px;
       img {
         width: 100%;
       }
     }
+
     &__menu {
       order: 1;
       display: flex;
@@ -188,6 +198,12 @@
   .tours {
     &__info {
       margin-bottom: 460px;
+    }
+    &__title {
+      text-align: center;
+    }
+    &__info {
+      justify-content: center;
     }
   }
   .contacts {
@@ -214,16 +230,29 @@
     &__wrapper {
       max-width: 100%;
       padding: 0;
-      margin-bottom: 65px;
+      // margin-bottom: 65px;
     }
+    // .slick-prev {
+    //   left: 15px;
+    //   top: 117%;
+    // }
+    // .slick-next {
+    //   right: 15px;
+    //   top: 117%;
+    // }
     .slick-prev {
-      left: 15px;
-      top: 117%;
+      left: 0;
+      top: unset;
+      bottom: -150px;
     }
     .slick-next {
-      right: 15px;
-      top: 117%;
+      right: 0;
+      top: unset;
+      bottom: -150px;
     }
+  }
+  .review-slider {
+    margin: 0 auto 65px;
   }
   .reserve {
     &__wrapper {
@@ -292,15 +321,18 @@
     }
   }
   .our-team {
+    margin-bottom: 65px;
     max-width: 100%;
     padding: 0;
     .slick-prev {
-      left: 15px;
-      top: 111%;
+      left: 0;
+      top: unset;
+      bottom: -150px;
     }
     .slick-next {
-      right: 15px;
-      top: 111%;
+      right: 0;
+      top: unset;
+      bottom: -150px;
     }
     .slick-slide {
       margin: 0 5px;
@@ -328,9 +360,6 @@
     }
     &__item {
       text-align: center;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
     }
     &__info {
       margin-bottom: 40px;
@@ -357,8 +386,14 @@
       flex-direction: column;
       align-items: center;
     }
+    &__more {
+      text-align: center;
+    }
     &__rating {
       margin-bottom: 5px;
+    }
+    &__info {
+      height: auto;
     }
   }
   .route {

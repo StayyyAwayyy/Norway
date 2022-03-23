@@ -62,6 +62,7 @@ $(document).ready(function () {
       if (window.pageYOffset >= aboutOffset) {
         $(header).addClass('header_fixed');
         $(header).css('padding', '15px');
+        $(headerMenu).css('visibility', 'visible');
         $(headerMenu).prependTo('body');
       } else {
         $(header).removeClass('header_fixed');
@@ -179,6 +180,7 @@ $(document).ready(function () {
 
   let toursItems = $('.tours__item');
   let toursBtn = $('.route__menu-item');
+  let routeMap = $('.route__map');
 
   for (let i = 0; i < toursItems.length; i++) {
     $($(toursBtn)[i]).click(() => {
@@ -188,6 +190,14 @@ $(document).ready(function () {
       $($(toursBtn)[i]).addClass('route__menu-item_active');
     });
   }
+
+  // $(window).on('resize scroll', function () {
+  //   if ($(window).width() < '670') {
+  //     $(routeMap).prependTo('.route');
+  //   } else if ($(window).width() >= '670') {
+  //     $(routeMap).appendTo('.route__container');
+  //   }
+  // });
 
   //
   // collage slider
@@ -266,6 +276,7 @@ $(document).ready(function () {
   });
 
   let readMoreBtn = $('.review-slider__more');
+  let readMoreText = $('.review-slider__more-text');
 
   for (let i = 0; i < readMoreBtn.length; i++) {
     $(readMoreBtn[i]).click(() => {
@@ -274,14 +285,18 @@ $(document).ready(function () {
 
       if ($(dots[i]).css('display') === 'none') {
         $(dots[i]).show();
-        $(readMoreBtn[i]).text('Читать больше');
-        // $(readMoreBtn[i]).css('margin-top', '30px');
+        $(readMoreText[i]).text('Читать больше');
         $(hiddenText[i]).hide();
-      } else if ($(dots[i]).css('display') === 'inline') {
+        if ($(window).width() > '479') {
+          $(readMoreBtn[i]).css('margin-top', '30px');
+        }
+      } else {
         $(dots[i]).hide();
-        $(readMoreBtn[i]).text('Читать меньше');
-        // $(readMoreBtn[i]).css('margin-top', '5px');
+        $(readMoreText[i]).text('Читать меньше');
         $(hiddenText[i]).show();
+        if ($(window).width() > '479') {
+          $(readMoreBtn[i]).css('margin-top', '5px');
+        }
       }
     });
   }

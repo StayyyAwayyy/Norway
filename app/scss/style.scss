@@ -100,7 +100,6 @@ body {
     left: 0;
     right: 0;
     backdrop-filter: blur(50px);
-
     // transform: translateZ(0);
   }
 }
@@ -202,6 +201,7 @@ body {
   }
   &__num {
     font-size: 73px;
+    line-height: 40;
   }
   &__text {
     margin-left: 15px;
@@ -266,8 +266,9 @@ body {
     border-left: 15px solid #fff;
     // max-width: 385px;
     // max-height: 305px;
+    // width: 100%;
     img {
-      width: 100%;
+      // width: 100%;
     }
   }
   &__absolute-text {
@@ -383,23 +384,29 @@ body {
 // route
 .route {
   padding: 125px 0 200px;
-  .container {
-    position: relative;
+  &__container {
+    // position: relative;
   }
   &__wrapper {
     position: relative;
-
+    margin-left: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    // display: grid;
+    // grid-template-columns: 1fr 420px 1fr;
   }
   &__map {
+    max-width: 670px;
+    // position: relative;
     position: absolute;
-    top: -100px;
-    left: 20px;
+    // top: -35%;
+    // left: 0;
+    // left: 20px;
     // max-width: 600px;
+    display: none;
     img {
-      // position: absolute;
+      width: 100%;
     }
   }
   &__title {
@@ -407,10 +414,12 @@ body {
   }
   &__inner {
     margin: 0 auto;
-    padding-left: 50px;
-    overflow: hidden;
+    // padding-left: 85px;
+    // overflow: hidden;
+    // grid-area: 1/2;
   }
   &__menu {
+    margin-left: 15px;
   }
   &__menu-item {
     display: block;
@@ -439,6 +448,7 @@ body {
   &__item {
     animation: tourShow 2s;
     // height: 562px;
+    // max-width: 420px;
     display: none;
     &:first-child {
       display: block;
@@ -585,23 +595,12 @@ body {
   &__title {
     margin-bottom: 75px;
   }
-  // &__pages {
-  //   text-align: center;
-  //   font-family: 'PlayfairDisplay-Regular', serif;
-  // }
-  // &__pages-count {
-  //   font-size: 23px;
-  //   color: #818181;
-  // }
-  // &__pages-current {
-  //   color: rgb(36, 36, 36);
-  //   font-size: 28px;
-  // }
 }
 
 .review-slider {
   padding: 0 95px;
   margin: 0 auto 40px;
+
   &__item {
     // height: 370px;
     padding: 30px 40px 30px 30px;
@@ -623,18 +622,19 @@ body {
   &__top-info {
   }
   &__info {
-    min-height: 165px;
-    // animation: suiteShow 1s;
+    height: 165px;
   }
   &__hidden {
     display: none;
     animation: reviewHidden 2s;
   }
   &__more {
-    border-bottom: 1px solid #242424;
-    display: inline-block;
     cursor: pointer;
     margin-top: 30px;
+    &-text {
+      border-bottom: 1px solid #242424;
+      display: inline-block;
+    }
   }
   &__name {
     margin-bottom: 15px;
