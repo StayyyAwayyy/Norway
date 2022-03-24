@@ -57,12 +57,15 @@
     &__accordion {
       margin-top: 35px;
       max-width: 445px;
+      min-height: 780px;
     }
   }
 }
 
 // 768-1023
 @media screen and(max-width: 1023px) {
+}
+@media screen and(max-width: 959px) {
 }
 
 @media screen and(max-width: 899px) {
@@ -375,6 +378,18 @@
     }
   }
   .review-slider {
+    .slick-slide {
+      // margin: 0 5px;
+      margin: 0 5px;
+    }
+    &__item {
+      // min-height: 520px;
+      // display: flex !important;
+      // flex-direction: column;
+      // justify-content: space-between;
+      // align-items: center;
+      padding: 25px;
+    }
     &__main-info {
       flex-direction: column;
       text-align: center;
@@ -385,6 +400,7 @@
     &__bottom-info {
       flex-direction: column;
       align-items: center;
+      // align-self: flex-end;
     }
     &__more {
       text-align: center;
@@ -404,6 +420,13 @@
   }
   .collage {
     padding-top: 125px;
+  }
+  .hotels {
+    padding-bottom: 55px;
+  }
+  .answers {
+    // padding-bottom: 0;
+    // margin-bottom: 125px;
   }
   .accordion {
     &__title {
@@ -432,13 +455,23 @@
   }
   .adresses {
     &__map {
-      height: 380px;
+      // height: 380px;
     }
   }
   .map-window {
     // width: 100%;
-    width: 280px;
-    height: 200px;
+    // width: 280px;
+    // height: 200px;
+  }
+  .map-window {
+    &__title {
+      font-size: 16px;
+    }
+    &__hours,
+    &__adress,
+    &__weekends {
+      font-size: 10px;
+    }
   }
   .reserve {
     &__subtitle {
@@ -471,6 +504,11 @@
   .route {
     &__title {
       text-align: left;
+    }
+  }
+  .answers {
+    &__accordion {
+      min-height: 838px;
     }
   }
 }

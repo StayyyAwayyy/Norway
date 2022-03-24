@@ -209,7 +209,7 @@ $(document).ready(function () {
     rows: 2,
     responsive: [
       {
-        breakpoint: 1159,
+        breakpoint: 979,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -235,6 +235,14 @@ $(document).ready(function () {
       $(popupForm).css('visibility', 'visible');
     });
   }
+
+  $(window).on('resize init', function () {
+    if ($(window).width() < '480') {
+      $('.tour-slider__info-item span').text('чел.');
+    } else {
+      $('.tour-slider__info-item span').text('человек');
+    }
+  });
 
   //
   // review slider
@@ -349,10 +357,12 @@ $(document).ready(function () {
   //
   // map
   //
-  initMapMinsk();
+
+  // initMapMinsk();
   let btnMap = $('.adresses__btn');
   let btnMinsk = $('.adresses__btn_minsk');
   let btnOslo = $('.adresses__btn_oslo');
+  let locationContainer = $('.location__container');
 
   $(btnMinsk).click(function () {
     $(btnMap).removeClass('adresses__btn_active');
@@ -374,22 +384,18 @@ $(document).ready(function () {
     initMapOslo();
   });
 
-  // ДОДЕЛАТь
-  // $(window).on('resize', function () {
-  // if ($(window).width() < '579') {
-  //   $('.adresses').unwrap();
-  // } else {
-  //   $('.adresses').wrap('<div class="container"></div>');
-  // }
-
-  console.log('test');
-  // });
+  $(window).on('resize', function () {
+    if ($(window).width() < '480') {
+      $(locationContainer).css('padding', '0');
+    } else {
+      $(locationContainer).css('padding', '0 15px');
+    }
+  });
 
   //
   // form
   //
   let reserveFormBtn = $('.reserve-form__btn');
-  let reserveFormAgree = $('.reserve-form__check-agree');
   let loader = $('.loader');
 
   $(reserveFormBtn).click((event) => {
@@ -416,12 +422,6 @@ $(document).ready(function () {
     } else {
       $(reserveFormErr).removeClass('form__check_error');
     }
-    // if (!reserveFormCheck.prop('checked')) {
-    //   $(reserveAgreeErr).show();
-    //   event.preventDefault();
-    // } else {
-    //   $(reserveAgreeErr).hide();
-    // }
 
     if (reserveFormName.val() && reserveFormPhone.val() && reserveFormCheck.prop('checked')) {
       $(loader).show();
