@@ -46,6 +46,8 @@ function scripts() {
     'node_modules/wow.js/dist/wow.js',
     'node_modules/jquery/dist/jquery.js',
     'node_modules/slick-carousel/slick/slick.js',
+    'node_modules/jquery-parallax.js/parallax.js',
+    'node_modules/jquery.maskedinput/src/jquery.maskedinput.js',
     'app/js/main.js',
   ])
     .pipe(concat('main.min.js'))

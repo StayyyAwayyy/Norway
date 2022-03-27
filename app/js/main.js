@@ -5,6 +5,16 @@ $(document).ready(function () {
   new WOW().init();
 
   //
+  //
+  // $('article').readmore({
+  //   embedCSS: false,
+  // });
+  // $('#read').readmore({
+
+  //
+  //
+
+  //
   // scroll
   //
 
@@ -12,7 +22,6 @@ $(document).ready(function () {
 
   for (let i = 0; i < menuItems.length; i++) {
     $(menuItems[i]).on('click', function (event) {
-      console.log('1');
       if (this.hash !== '') {
         event.preventDefault();
         var hash = this.hash;
@@ -37,27 +46,23 @@ $(document).ready(function () {
   let menu = $('.menu');
 
   $(menuBtn).click(() => {
-    menuBtn.toggleClass('active');
-    menu.toggleClass('active');
+    $(menuBtn).toggleClass('active');
+    $(menu).toggleClass('active');
   });
 
   $(window).scroll(() => {
-    menuBtn.removeClass('active');
-    menu.removeClass('active');
+    $(menuBtn).removeClass('active');
+    $(menu).removeClass('active');
   });
 
   //
   // header fixed
   //
-  let headerOffset = $('.main__header').offset().top;
   let aboutOffset = $('.about').offset().top;
   let header = $('.header');
   let headerMenu = $('.header__menu');
 
-  // $(window)
-  //   .resize()
-  //   .scroll(function () {
-  $(window).on('resize scroll', function () {
+  $(window).on('resize scroll reinit init ', function () {
     if ($(window).width() < '480') {
       if (window.pageYOffset >= aboutOffset) {
         $(header).addClass('header_fixed');
@@ -145,39 +150,6 @@ $(document).ready(function () {
   //
   // route
   //
-
-  let routeCurrentItem = $('.route__menu-item_active');
-  let routeMenuItem = $('.route__menu-item');
-  // for (let i = 0; i < routeMenuItem.length; i++) {
-  //   $(routeMenuItem[i]).click((event) => {
-  //     console.log(event.target);
-  //     $(routeMenuItem[i]).addClass('route__menu-item_active');
-  //   });
-  // }
-
-  // $('.route__menu-item').click((event) => {
-  //   if ($('.route__menu-item').hasClass('route__menu-item_active')) {
-  //     $('.route__menu-item').removeClass('route__menu-item_active');
-  //   } else {
-  //     $(this).addClass('route__menu-item_active');
-  //   }
-  // });
-
-  // $('.tours').slick({
-  //   vertical: true,
-  //   verticalSwiping: true,
-  //   dots: true,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   infinite: false,
-  //   arrows: false,
-  // });
-
-  // $('#d1').click(() => {
-  //   // $($('.tours__item')[1]).addClass('slick-active');
-  //   $(tours__item[2]).addClass('slick-active');
-  // });
-
   let toursItems = $('.tours__item');
   let toursBtn = $('.route__menu-item');
   let routeMap = $('.route__map');
@@ -230,7 +202,8 @@ $(document).ready(function () {
   let collageBtn = $('.tour-slider__btn');
 
   for (let i = 0; i < collageBtn.length; i++) {
-    $(collageBtn[i]).click(() => {
+    // $(collageBtn[i]).click(() => {
+    $(document).on('click', $(collageBtn[i]), function () {
       $(popup).css('display', 'flex');
       $(popupForm).css('visibility', 'visible');
     });
@@ -250,7 +223,10 @@ $(document).ready(function () {
   let reviewSlider = $('.review-slider');
   let reviewCurrent = $('.review__pages-current');
   let reviewCount = $('.review__pages-count');
-  let slickActiveReview = $('.review-slider .slick-active');
+  let dots = $('.review-slider__dots');
+  let hiddenText = $('.review-slider__hidden');
+  let readMoreBtn = $('.review-slider__more');
+  let readMoreText = $('.review-slider__more-text');
 
   $(reviewSlider).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
     if ($(window).width() > '998') {
@@ -262,52 +238,52 @@ $(document).ready(function () {
     }
   });
 
+  $(reviewSlider).on('afterChange', function () {
+    for (let i = 0; i < readMoreBtn.length; i++) {
+      $(dots[i]).show();
+      $(readMoreText[i]).text('Читать больше');
+      $(hiddenText[i]).hide();
+      // if ($(window).width() > '479') {
+      $(readMoreBtn[i]).css('margin-top', '30px');
+    }
+  });
+
   $(reviewSlider).slick({
     infinite: false,
     slidesToShow: 2,
     slidesToScroll: 2,
     responsive: [
       {
-        // breakpoint: 1159,
         breakpoint: 999,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
-        // breakpoint: 809,
-        // settings: {
-        //   slidesToShow: 1,
-        //   slidesToScroll: 1,
-        // },
       },
     ],
   });
 
-  let readMoreBtn = $('.review-slider__more');
-  let readMoreText = $('.review-slider__more-text');
-
+  // $(window).on('resize', function () {
   for (let i = 0; i < readMoreBtn.length; i++) {
-    $(readMoreBtn[i]).click(() => {
-      let dots = $('.review-slider__dots');
-      let hiddenText = $('.review-slider__hidden');
-
+    $(document).on('click', $(readMoreBtn[i]), function () {
+      // $(readMoreBtn[i]).click(() => {
       if ($(dots[i]).css('display') === 'none') {
+        // if ($(dots[i]).css('display') === 'inline') {
         $(dots[i]).show();
-        $(readMoreText[i]).text('Читать больше');
+        // $(dots[i]).css('display', 'inline');
+        $(readMoreBtn[i]).text('Читать больше');
         $(hiddenText[i]).hide();
-        if ($(window).width() > '479') {
-          $(readMoreBtn[i]).css('margin-top', '30px');
-        }
+        $(readMoreBtn[i]).css('margin-top', '30px');
       } else {
         $(dots[i]).hide();
-        $(readMoreText[i]).text('Читать меньше');
+        // $(dots[i]).css('display', 'none');
+        $(readMoreBtn[i]).text('Читать меньше');
         $(hiddenText[i]).show();
-        if ($(window).width() > '479') {
-          $(readMoreBtn[i]).css('margin-top', '5px');
-        }
+        $(readMoreBtn[i]).css('margin-top', '5px');
       }
     });
   }
+  // });
 
   //
   // hotels
@@ -357,8 +333,6 @@ $(document).ready(function () {
   //
   // map
   //
-
-  // initMapMinsk();
   let btnMap = $('.adresses__btn');
   let btnMinsk = $('.adresses__btn_minsk');
   let btnOslo = $('.adresses__btn_oslo');
@@ -399,28 +373,27 @@ $(document).ready(function () {
   let loader = $('.loader');
 
   $(reserveFormBtn).click((event) => {
+    event.preventDefault();
+
     let reserveForm = $('.reserve-form__form');
     let reserveFormInp = $('.reserve-form input');
     let reserveFormName = $('.reserve-form__name');
     let reserveFormPhone = $('.reserve-form__phone');
-    let reserveFormCheck = $('#formCheck');
+    let reserveFormCheck = $('.reserve-form__check-box');
     let reserveFormErr = $('.reserve-form__check');
 
     for (let i = 0; i < reserveFormInp.length; i++) {
       if (!$(reserveFormInp[i]).val()) {
         $(reserveFormInp[i]).css('border', '1px solid #f36c6c');
-        event.preventDefault();
       } else if ($(reserveFormInp[i]).val()) {
         $(reserveFormInp[i]).css('border', '1px solid #fff');
-        event.preventDefault();
       }
     }
 
     if (!reserveFormCheck.prop('checked')) {
-      $(reserveFormErr).addClass('form__check_error');
-      event.preventDefault();
+      $(reserveFormErr).addClass('reserve-form__check_error');
     } else {
-      $(reserveFormErr).removeClass('form__check_error');
+      $(reserveFormErr).removeClass('reserve-form__check_error');
     }
 
     if (reserveFormName.val() && reserveFormPhone.val() && reserveFormCheck.prop('checked')) {
@@ -428,7 +401,6 @@ $(document).ready(function () {
       $.ajax({
         type: 'POST',
         url: '../mail.php',
-        // data: 'name=' + reserveFormName.val() + '&phone' + reserveFormPhone.val(),
         data: {
           name: reserveFormName.val(),
           phone: reserveFormPhone.val(),
@@ -437,6 +409,7 @@ $(document).ready(function () {
           $(loader).hide();
           $(reserveForm).hide();
           $('.reserve-form__thanks').show();
+          console.log(err);
         },
         error: () => {
           $(loader).hide();
@@ -456,8 +429,9 @@ $(document).ready(function () {
   let popupBtn = $('.popup__btn');
 
   $(toursReserveBtn).click(() => {
-    $(popup).css('display', 'flex');
-    $(popupForm).css('visibility', 'visible');
+    // $(popup).css('display', 'flex');
+    $(popup).show();
+    // $(popupForm).css('visibility', 'visible');
   });
 
   $('#popup__close-svg, #popup__close-path, .popup').click((event) => {
@@ -466,32 +440,39 @@ $(document).ready(function () {
       event.target.id === 'popup__close-path' ||
       event.target.className === 'popup'
     ) {
+      console.log(event.target);
       $(popup).hide();
+      $(popup).css('display', 'none');
     }
   });
 
+  $('.popup__title').click((event) => {
+    $(popup).hide();
+    // $(popup).css('display', 'none');
+  });
+
   $(popupBtn).click((event) => {
+    event.preventDefault();
+
     let popupInp = $('.popup__form input');
     let popupName = $('.popup__name');
     let popupPhone = $('.popup__phone');
     let popupCheck = $('#popupFormCheck');
-    let popupErr = $('.popup__agree-error');
+    let popupFormCheck = $('.popup__check-box');
+    let popupFormErr = $('.popup__check');
 
     for (let i = 0; i < popupInp.length; i++) {
       if (!$(popupInp[i]).val()) {
         $(popupInp[i]).css('border', '1px solid #f36c6c');
-        event.preventDefault();
       } else if ($(popupInp[i]).val()) {
         $(popupInp[i]).css('border', '1px solid #fff');
-        event.preventDefault();
       }
     }
 
-    if (!popupCheck.prop('checked')) {
-      $(popupErr).show();
-      event.preventDefault();
+    if (!popupFormCheck.prop('checked')) {
+      $(popupFormErr).addClass('popup__check_error');
     } else {
-      $(popupErr).hide();
+      $(popupFormErr).removeClass('popup__check_error');
     }
 
     if (popupName.val() && popupPhone.val() && popupCheck.prop('checked')) {
@@ -499,7 +480,6 @@ $(document).ready(function () {
       $.ajax({
         type: 'POST',
         url: '../mail.php',
-        // data: 'name=' + reserveFormName.val() + '&phone' + reserveFormPhone.val(),
         data: {
           name: popupName.val(),
           phone: popupPhone.val(),
@@ -518,35 +498,8 @@ $(document).ready(function () {
     }
   });
 
-  // function initMap() {
-  //   const osloWindow = document.getElementById('osloWindow');
-
-  //   const oslo = { lat: 59.914117, lng: 10.762495 },
-  //     markerImage = 'images/google-marker.png';
-  //   const map = new google.maps.Map(document.getElementById('map'), {
-  //     zoom: 16,
-  //     center: oslo,
-  //   });
-  //   const markerOslo = new google.maps.Marker({
-  //     position: oslo,
-  //     map: map,
-  //     animation: google.maps.Animation.DROP,
-  //     icon: markerImage,
-  //   });
-  //   const infowindow = new google.maps.InfoWindow({
-  //     // content: osloWindow,
-  //     content: `<div class="osloWindow" id="osloWindow">
-  //                 <div class="osloWindow__title">Туристическая компания «Northern Tour»</div>
-  //                 <div class="osloWindow__adress">0187 Осло, Норвегия</div>
-  //                 <div class="osloWindow__hours"><span>Пн — Пт: </span>с 10:00 до 22:00</div>
-  //                 <div class="osloWindow__weekends"><span>Сб — Вс: </span>выходной</div>
-  //               </div>`,
-  //   });
-
-  //   infowindow.open(map, markerOslo);
-
-  //   markerOslo.addListener('click', function () {
-  //     infowindow.open(map, markerOslo);
-  //   });
-  // }
+  //
+  // mask
+  //
+  $('#formPhone, #popupPhone').mask('+7 (999) 99-99-999');
 });

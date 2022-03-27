@@ -19,6 +19,9 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify-es": "^2.0.0",
     "jquery": "^3.5.1",
+    "jquery-parallax.js": "^1.5.0",
+    "jquery.maskedinput": "^1.4.1",
+    "readmore-js": "^2.2.1",
     "slick-carousel": "^1.8.1",
     "wow.js": "^1.2.2"
   }

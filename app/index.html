@@ -10,7 +10,12 @@
 
   <body>
     <!-- MAIN -->
-    <section class="main" id="main">
+    <section
+      class="parallax-window main"
+      data-parallax="scroll"
+      data-image-src="images/main-bg.png"
+      id="main"
+    >
       <div class="container main__container">
         <div class="main__inner">
           <header class="main__header header">
@@ -302,16 +307,16 @@
     <!-- ROUTS -->
     <section class="route">
       <div class="container route__container">
-        <!-- <div class="route__map">
+        <div class="route__map">
           <img src="images/route_map.png" alt="" />
-        </div> -->
+        </div>
         <h2 class="title route__title wow animate__animated animate__bounceInDown">
           Популярный маршрут
         </h2>
         <div class="route__wrapper">
-          <div class="route__map">
+          <!-- <div class="route__map">
             <img src="images/route_map.png" alt="" />
-          </div>
+          </div> -->
           <div class="route__inner tours">
             <div class="tours__item">
               <div class="tours__title">Тур «Маленькая Норвегия»</div>
@@ -1470,12 +1475,9 @@
                 гидом Анной выехали в Акерсхус — замок-крепость, с которого открывается прекрасный
                 вид на фьорд. Вот<span class="review-slider__dots">...</span
                 ><span class="review-slider__hidden">
-                  древняя крепость, окруженная мифами и легендами, является интереснейшей
-                  достопримечательностью Норвегии.</span
+                  древняя крепость, является интереснейшей достопримечательностью Норвегии.</span
                 >
-              </div>
-              <div class="review-slider__more">
-                <span class="review-slider__more-text">Читать больше</span>
+                <button class="review-slider__more">Читать больше</button>
               </div>
             </div>
             <div class="review-slider__bottom-info">
@@ -1569,18 +1571,14 @@
             </div>
             <div class="review-slider__info">
               <div class="review-slider__text">
-                <p>
-                  Я увидила самые интересные природные достопримечательности фьордовой Норвегии и
-                  насладилась проживанием в самых лучших отелях страны. Вас ждут незабываемые
-                  впечатления<span class="review-slider__dots">...</span>
-                  <span class="review-slider__hidden">
-                    , комфорт и гостеприимство норвежских отелей, отличная кухня и желание
-                    возвращаться в Норвегию снова и снова</span
-                  >
-                </p>
-              </div>
-              <div class="review-slider__more">
-                <span class="review-slider__more-text">Читать больше</span>
+                Я увидила самые интересные природные достопримечательности фьордовой Норвегии и
+                насладилась проживанием в самых лучших отелях страны. Вас ждут незабываемые
+                впечатления<span class="review-slider__dots">...</span
+                ><span class="review-slider__hidden">
+                  , комфорт и гостеприимство норвежских отелей, отличная кухня и желание
+                  возвращаться в Норвегию снова и снова</span
+                >
+                <button class="review-slider__more">Читать больше</button>
               </div>
             </div>
             <div class="review-slider__bottom-info">
@@ -2039,7 +2037,11 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
     </section>
 
     <!-- RESERVE -->
-    <section class="reserve">
+    <section
+      class="reserve parallax-window"
+      data-parallax="scroll"
+      data-image-src="images/form-bg.png"
+    >
       <div class="container">
         <h2 class="reserve__title title wow animate__animated animate__bounceInDown">
           Остались вопросы?
@@ -2074,13 +2076,8 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
               ,
             />
             <div class="reserve-form__check-rules form__check-rules">
-              <input
-                class="reserve-form__check-box form__check-box"
-                id="formCheck"
-                type="checkbox"
-                name="agree"
-              />
-              <label class="reserve-form__check form__check" for="formCheck">
+              <input class="reserve-form__check-box" id="formCheck" type="checkbox" name="agree" />
+              <label class="reserve-form__check" for="formCheck">
                 <span class="reserve-form__text form__text">
                   Я соглашаюсь на обработку персональных данных, согласно
                   <a
@@ -2326,10 +2323,15 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
             <div class="subscription__text">
               Получайте уведомления о новых турах, скидках и интересных маршрутах
             </div>
-            <label class="subscription__label" for="">
-              <input class="subscription__mail" type="text" placeholder="Введите e-mail" />
+            <form class="subscription__form" action="sub.php" method="get">
+              <input
+                class="subscription__mail"
+                id="subscription__mail"
+                type="text"
+                placeholder="Введите e-mail"
+              />
               <button class="subscription__btn"></button>
-            </label>
+            </form>
           </div>
           <div class="information__social social">
             <div class="social__title">Мы в социальных сетях</div>
@@ -2469,27 +2471,22 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
         >
           <div class="popup__title form__title">Заполните форму</div>
           <input
-            id="formName"
+            id="popupName"
             class="popup__name form__name"
             type="text"
             name="firstName"
             placeholder="Ваше имя"
           />
           <input
-            id="formPhone"
+            id="popupPhone"
             class="popup__phone form__phone"
             type="text"
             name="phoneNumber"
             placeholder="Ваш телефон"
           />
           <div class="popup__check-rules form__check-rules">
-            <input
-              class="popup__check-box form__check-box"
-              id="popupFormCheck"
-              type="checkbox"
-              name="agree"
-            />
-            <label class="popup__check form__check" for="popupFormCheck">
+            <input class="popup__check-box" id="popupFormCheck" type="checkbox" name="agree" />
+            <label class="popup__check" for="popupFormCheck">
               <span class="popup__text form__text">
                 Я соглашаюсь на обработку персональных данных, согласно
                 <a
@@ -2499,7 +2496,6 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
                   >политике конфиденциальности<span> и </span>пользовательскому соглашению.</a
                 >
               </span>
-              <div class="popup__agree-error form__agree-error">Нужно согласиться с условиями</div>
             </label>
           </div>
           <button class="popup__btn form__btn btn">Отправить!</button>
@@ -2510,6 +2506,7 @@ C292.355,166.352,285.217,183.575,270.942,197.855z"
         </div>
       </div>
     </div>
+
     <!-- LOADER -->
     <div class="loader">
       <div class="loader__wrapper">

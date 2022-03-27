@@ -1,11 +1,10 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $name = $_POST['name'];
-    $phone = $_POST['phone'];
 
-    $content = $name . ' оставил заявку на бронирование. Его телефон: ' . $phone;
+    $content = $name . ' Подписался на email-рассылку.';
 
-    $success = mail("callme@northerm-tour.com", 'Запрос на бронирование столика', $content);
+    $success = mail("callme@northerm-tour.com", 'Запрос на бронирование тура', $content);
 
     if ($success) {
         http_response_code(200);
