@@ -20,12 +20,6 @@ function cleanDist() {
   return del('dist');
 }
 
-// function fonts() {
-//   return src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*').pipe(
-//     dest('app/fonts/libs')
-//   );
-// }
-
 function images() {
   return src('app/images/**/*')
     .pipe(
@@ -71,9 +65,12 @@ function styles() {
 }
 
 function build() {
-  return src(['app/css/style.min.css', 'app/fonts/**/*', 'app/js/main.min.js', 'app/*.html'], {
-    base: 'app',
-  }).pipe(dest('dist'));
+  return src(
+    ['app/css/style.min.css', 'app/fonts/**/*', 'app/js/main.min.js', 'app/*.html', 'app/*.php'],
+    {
+      base: 'app',
+    }
+  ).pipe(dest('dist'));
 }
 
 function watching() {
@@ -89,8 +86,6 @@ exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.images = images;
 exports.cleanDist = cleanDist;
-// exports.fonts = fonts;
 
 exports.build = series(cleanDist, images, build);
-// exports.default = parallel(fonts, styles, scripts, browsersync, watching);
 exports.default = parallel(styles, scripts, browsersync, watching);

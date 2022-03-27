@@ -5,16 +5,6 @@ $(document).ready(function () {
   new WOW().init();
 
   //
-  //
-  // $('article').readmore({
-  //   embedCSS: false,
-  // });
-  // $('#read').readmore({
-
-  //
-  //
-
-  //
   // scroll
   //
 
@@ -119,7 +109,6 @@ $(document).ready(function () {
       },
       {
         breakpoint: 799,
-        // breakpoint: 579,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -163,14 +152,6 @@ $(document).ready(function () {
     });
   }
 
-  // $(window).on('resize scroll', function () {
-  //   if ($(window).width() < '670') {
-  //     $(routeMap).prependTo('.route');
-  //   } else if ($(window).width() >= '670') {
-  //     $(routeMap).appendTo('.route__container');
-  //   }
-  // });
-
   //
   // collage slider
   //
@@ -198,16 +179,6 @@ $(document).ready(function () {
       },
     ],
   });
-
-  let collageBtn = $('.tour-slider__btn');
-
-  for (let i = 0; i < collageBtn.length; i++) {
-    // $(collageBtn[i]).click(() => {
-    $(document).on('click', $(collageBtn[i]), function () {
-      $(popup).css('display', 'flex');
-      $(popupForm).css('visibility', 'visible');
-    });
-  }
 
   $(window).on('resize init', function () {
     if ($(window).width() < '480') {
@@ -243,7 +214,6 @@ $(document).ready(function () {
       $(dots[i]).show();
       $(readMoreText[i]).text('Читать больше');
       $(hiddenText[i]).hide();
-      // if ($(window).width() > '479') {
       $(readMoreBtn[i]).css('margin-top', '30px');
     }
   });
@@ -263,27 +233,21 @@ $(document).ready(function () {
     ],
   });
 
-  // $(window).on('resize', function () {
   for (let i = 0; i < readMoreBtn.length; i++) {
-    $(document).on('click', $(readMoreBtn[i]), function () {
-      // $(readMoreBtn[i]).click(() => {
+    $(readMoreBtn[i]).click(() => {
       if ($(dots[i]).css('display') === 'none') {
-        // if ($(dots[i]).css('display') === 'inline') {
         $(dots[i]).show();
-        // $(dots[i]).css('display', 'inline');
         $(readMoreBtn[i]).text('Читать больше');
         $(hiddenText[i]).hide();
         $(readMoreBtn[i]).css('margin-top', '30px');
       } else {
         $(dots[i]).hide();
-        // $(dots[i]).css('display', 'none');
         $(readMoreBtn[i]).text('Читать меньше');
         $(hiddenText[i]).show();
         $(readMoreBtn[i]).css('margin-top', '5px');
       }
     });
   }
-  // });
 
   //
   // hotels
@@ -427,12 +391,19 @@ $(document).ready(function () {
   let popupForm = $('.popup__form');
   let toursReserveBtn = $('.tours__btn');
   let popupBtn = $('.popup__btn');
+  let collageBtn = $('.tour-slider__btn');
 
   $(toursReserveBtn).click(() => {
-    // $(popup).css('display', 'flex');
     $(popup).show();
-    // $(popupForm).css('visibility', 'visible');
+    $(popupForm).css('visibility', 'visible');
   });
+
+  for (let i = 0; i < collageBtn.length; i++) {
+    $(collageBtn[i]).click(() => {
+      $(popup).css('display', 'flex');
+      $(popupForm).css('visibility', 'visible');
+    });
+  }
 
   $('#popup__close-svg, #popup__close-path, .popup').click((event) => {
     if (
@@ -440,15 +411,8 @@ $(document).ready(function () {
       event.target.id === 'popup__close-path' ||
       event.target.className === 'popup'
     ) {
-      console.log(event.target);
       $(popup).hide();
-      $(popup).css('display', 'none');
     }
-  });
-
-  $('.popup__title').click((event) => {
-    $(popup).hide();
-    // $(popup).css('display', 'none');
   });
 
   $(popupBtn).click((event) => {

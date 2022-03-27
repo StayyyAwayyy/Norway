@@ -10,7 +10,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  // position: relative;
 }
 
 .title {
@@ -160,7 +159,6 @@ body {
       }
     }
     span {
-      // display: block;
       border-radius: 5px;
       width: 36px;
       height: 3px;
@@ -177,10 +175,6 @@ body {
         top: calc(50% + 10px);
       }
     }
-    // display: none;
-  }
-  &_active {
-    // display: block;
   }
 }
 
@@ -258,12 +252,6 @@ body {
   &__absolute-img {
     border-top: 15px solid #fff;
     border-left: 15px solid #fff;
-    // max-width: 385px;
-    // max-height: 305px;
-    // width: 100%;
-    img {
-      // width: 100%;
-    }
   }
   &__absolute-text {
     max-width: 425px;
@@ -276,20 +264,10 @@ body {
 
 .team {
   padding: 125px 0 55px;
-  // position: relative;
   &__subtitle {
     margin-top: 60px;
     margin-bottom: 80px;
   }
-  // &__pages {
-  //   font-size: 28px;
-  //   font-family: 'PlayfairDisplay-Regular', serif;
-  //   text-align: center;
-  // }
-  // &__pages-span {
-  //   font-size: 23px;
-  //   color: #818181;
-  // }
 }
 
 .our-team {
@@ -378,34 +356,17 @@ body {
 // route
 .route {
   padding: 125px 0 200px;
-  &__container {
-    // position: relative;
-    // overflow: hidden;
-  }
   &__wrapper {
-    // position: relative;
     margin-left: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // display: grid;
-    // grid-template-columns: 1fr 420px 1fr;
   }
   &__map {
-    // max-width: 670px;
-    // top: -70px;
     position: relative;
-    // position: absolute;
-    // top: -35%;
-    // left: 0;
-    // left: 20px;
-    // max-width: 600px;
-    // display: none;
     img {
-      // width: 100%;
       top: -90px;
       position: absolute;
-      // top: 0;
     }
   }
   &__title {
@@ -413,9 +374,6 @@ body {
   }
   &__inner {
     margin: 0 auto;
-    // padding-left: 85px;
-    // overflow: hidden;
-    // grid-area: 1/2;
   }
   &__menu {
     margin-left: 15px;
@@ -446,8 +404,6 @@ body {
   max-width: 428px;
   &__item {
     animation: tourShow 2s;
-    // height: 562px;
-    // max-width: 420px;
     display: none;
     &:first-child {
       display: block;
@@ -504,7 +460,6 @@ body {
 // tour-slider
 
 .collage {
-  // padding: 125px 0 190px;
   padding: 40px 0 190px;
   &__wrapper {
   }
@@ -544,7 +499,6 @@ body {
     margin: 30px 0;
   }
   &__info-item {
-    // margin-right: 25px;
     display: flex;
     align-items: center;
     svg {
@@ -586,7 +540,6 @@ body {
     background-image: url(../images/review-bg.png);
     background-position: top center;
     background-repeat: no-repeat;
-    // background-size: cover;
     height: 860px;
     position: absolute;
     bottom: -40px;
@@ -607,7 +560,6 @@ body {
     justify-content: space-between;
   }
   &__item {
-    // height: 370px;
     padding: 30px 40px 30px 30px;
     background: #fff;
     box-shadow: 0px 0px 12px -6px rgba(0, 0, 0, 0.2);
@@ -642,7 +594,6 @@ body {
     border-bottom: 1px solid #242424;
     padding: 0;
     outline: none;
-    // display: flex;
     display: block;
   }
   &__name {
@@ -660,7 +611,6 @@ body {
   &__bottom-info {
     display: flex;
     justify-content: space-between;
-    // margin-top: 40px;
   }
   &__rating {
     display: flex;
@@ -687,11 +637,8 @@ body {
   }
   .slick-list {
     margin: 0 auto;
-    // padding: 2px;
   }
-  .slick-track {
-    // padding: 5px;
-  }
+
   .slick-prev {
     width: 65px;
     height: 65px;
@@ -728,8 +675,6 @@ body {
 }
 .suite {
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   &__item {
@@ -820,7 +765,6 @@ body {
   background-image: url(../images/answers-bg.png);
   background-position: bottom center;
   background-repeat: no-repeat;
-  // background-size: cover;
   &__wrapper {
     display: flex;
     justify-content: space-between;
@@ -901,7 +845,7 @@ body {
 
 .reserve {
   padding-top: 110px;
-  margin-bottom: 70px;
+  margin-bottom: 25px;
   height: 952px;
   background-size: cover;
   background-position: center;
@@ -1016,8 +960,6 @@ body {
   }
 }
 
-//
-
 .adresses {
   &__btns {
     border: 1px solid #699db2;
@@ -1090,7 +1032,6 @@ body {
 
 .gm-style .gm-style-iw-c {
   min-width: 270px !important;
-  // min-height: 270px !important;
 }
 
 .gm-style .gm-style-iw-d,
@@ -1435,10 +1376,6 @@ body {
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
-//
-//
-//
-//
 
 //
 @import 'adaptive';

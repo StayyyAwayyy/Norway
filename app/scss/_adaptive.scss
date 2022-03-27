@@ -1,22 +1,6 @@
 @media screen and(min-width: 1921px) {
 }
 
-// 1024-1199
-@media screen and(max-width: 1199px) {
-}
-
-@media screen and(max-width: 1159px) {
-  // .our-team {
-  //   max-width: 70%;
-  // }
-  // .tour-slider {
-  //   max-width: 60%;
-  // }
-  // .review-slider {
-  //   max-width: 60%;
-  // }
-}
-
 @media screen and(max-width: 1139px) {
   .about {
     &__inner {
@@ -62,18 +46,16 @@
   }
 }
 
-// 768-1023
-@media screen and(max-width: 1023px) {
-}
-@media screen and(max-width: 959px) {
-}
-
 @media screen and(max-width: 899px) {
+  .hotels {
+    &__subtitle {
+      margin-bottom: 40px;
+    }
+  }
   .suite {
     &__item {
       flex-direction: column;
       justify-content: center;
-      // display: block;
     }
     &__hidden-img {
       display: block;
@@ -113,13 +95,6 @@
   }
 }
 
-@media screen and(max-width: 819px) {
-  // .our-team {
-  //   max-width: 50%;
-  // }
-}
-
-// 580-767
 @media screen and(max-width: 767px) {
   .header {
     grid-template-columns: 1fr 2fr;
@@ -164,7 +139,6 @@
     position: relative;
     padding-top: 0;
     &__container {
-      // position: static;
       overflow: hidden;
       padding-top: 125px;
     }
@@ -173,15 +147,8 @@
       margin: 0 auto;
     }
     &__map {
-      // max-width: 400px;
-      //  right: -45%;
-      //  top: 40px;
-      // right: -50%;
-      // transform: translateX(-50%);
-      // top: 40px;
       img {
         max-width: 400px;
-        // right: 50%;
         right: 50%;
         transform: translateX(75%);
       }
@@ -254,11 +221,6 @@
   }
 }
 
-// 480-579
-@media screen and(max-width: 579px) {
-}
-
-// 320-479
 @media screen and(max-width: 479px) {
   .title {
     font-size: 30px;
@@ -292,8 +254,9 @@
     }
   }
   .about {
+    padding-top: 115px;
     &::after {
-      top: 95%;
+      top: 90%;
     }
     &__img {
       img {
@@ -328,19 +291,11 @@
     }
   }
   .route {
-    padding-bottom: 115px;
+    padding-bottom: 55px;
     &__title {
       margin-bottom: 50px;
     }
-    &__map {
-      // right: -110%;
-      // right: -50px;
-      // right: 0;
-      // top: 40px;
-      // transform: translateX(0);
-    }
   }
-
   .tours {
     &__title {
       font-size: 20px;
@@ -374,21 +329,19 @@
       }
     }
   }
+  .review {
+    &__title {
+      margin-bottom: 60px;
+    }
+  }
   .review-slider {
     &__item {
       min-height: 520px;
     }
     .slick-slide {
-      // margin: 0 5px;
       margin: 0 5px;
-      // min-height: 472px;
     }
     &__item {
-      // min-height: 520px;
-      // display: flex !important;
-      // flex-direction: column;
-      // justify-content: space-between;
-      // align-items: center;
       padding: 30px;
       display: grid !important;
       grid-template-rows: 214px 1fr 42px;
@@ -415,12 +368,17 @@
       height: auto;
     }
   }
-
   .collage {
-    padding-top: 125px;
+    padding: 125px 0 15px;
+    &__title {
+      margin-bottom: 60px;
+    }
   }
   .hotels {
-    padding-bottom: 55px;
+    padding-bottom: 30px;
+  }
+  .answers {
+    padding-top: 125px;
   }
   .accordion {
     &__title {
@@ -438,24 +396,27 @@
       }
     }
   }
+  .answers {
+    &__title {
+      margin-bottom: 60px;
+
+      text-align: left;
+    }
+  }
   .communication {
-    // text-align: left;
     &__title {
       text-align: left;
     }
     &__wrapper {
       align-items: flex-start;
+      margin-top: 55px;
+      margin-bottom: 55px;
     }
   }
   .adresses {
-    &__map {
-      // height: 380px;
+    &__btns {
+      margin-bottom: 30px;
     }
-  }
-  .map-window {
-    // width: 100%;
-    // width: 280px;
-    // height: 200px;
   }
   .map-window {
     &__title {
@@ -468,6 +429,7 @@
     }
   }
   .reserve {
+    margin-bottom: 0;
     &__subtitle {
       margin-bottom: 60px;
     }
@@ -494,6 +456,12 @@
     &__title {
       text-align: left;
     }
+    &__img {
+      display: flex;
+      align-items: center;
+      max-height: 290px;
+      overflow: hidden;
+    }
   }
   .team {
     &__subtitle {
@@ -510,10 +478,20 @@
       min-height: 596px;
     }
   }
-
+  .suite {
+    &__btn {
+      width: 100%;
+    }
+  }
   .answers {
     &__accordion {
       min-height: 838px;
+    }
+    &__image {
+      display: flex;
+      align-items: center;
+      max-height: 290px;
+      overflow: hidden;
     }
   }
 }
